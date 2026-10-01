@@ -5,6 +5,8 @@ export const site = {
   name: "DIGIT",
   legal: "DIGIT AI",
   tag: "The next generation of business growth.",
+  // Absolute URL for social share cards (og:image must be absolute). Update if a custom domain is added.
+  url: "https://digit-ai-v2.vercel.app",
 };
 
 export const contact = {
