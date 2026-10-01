@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { Check } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { diary } from "@/lib/copy";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -76,36 +78,25 @@ export function LiveDiary() {
   }
 
   return (
-    <section id="diary" className="border-y border-line bg-surface">
-      <div className="mx-auto grid min-w-0 max-w-6xl items-center gap-12 px-5 py-24 sm:px-8 md:grid-cols-2 md:py-32">
+    <section id="diary" className="relative">
+      <div className="mx-auto grid min-w-0 max-w-7xl items-center gap-10 px-5 py-20 sm:px-8 md:py-32 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-subtle">
-            04 / Live diary
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
-            They pick a time. It’s in the book.
-          </h2>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
-            This is a working slice of the diary we install — Aesthetics Beyond’s week, live. Try a
-            slot. The confirmation is what your customer sees, not a “we’ll email you.”
-          </p>
+          <Eyebrow n="04">{diary.eyebrow}</Eyebrow>
+          <h2 className="mt-4 max-w-[9ch] font-display text-[clamp(2.75rem,12vw,5.5rem)]">{diary.headline}</h2>
+          <p className="mt-6 max-w-md text-base leading-relaxed text-muted">{diary.lede}</p>
         </Reveal>
 
         <Reveal delay={80}>
-          <div className="rounded-xl bg-bg p-5 shadow-border sm:p-6 min-w-0 overflow-hidden">
+          <div className="glow-border min-w-0 overflow-hidden rounded-xl bg-surface p-4 sm:p-6">
             <div className="flex items-end justify-between gap-3">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-subtle">
-                  Live diary
-                </p>
-                <p className="mt-1 font-display text-lg font-bold tracking-tight">
-                  Aesthetics Beyond
-                </p>
+                <p className="eyebrow">Live diary · demo</p>
+                <p className="mt-1 font-display text-xl font-bold uppercase">{diary.business}</p>
               </div>
-              <p className="text-xs text-muted">Hydrafacial · 45 min</p>
+              <p className="text-xs text-muted">{diary.service}</p>
             </div>
 
-            <div className="mt-5 flex min-w-0 gap-2">
+            <div className="mt-5 flex min-w-0 gap-1.5 sm:gap-2">
               {days.map((d, i) => (
                 <button
                   key={d.toISOString()}
@@ -171,7 +162,7 @@ export function LiveDiary() {
                     </p>
                     <button
                       type="button"
-                      className="mt-3 text-xs font-semibold text-stone hover:text-fg"
+                      className="mt-1 inline-flex min-h-11 items-center text-sm font-semibold text-stone hover:text-fg"
                       onClick={reset}
                     >
                       Book another

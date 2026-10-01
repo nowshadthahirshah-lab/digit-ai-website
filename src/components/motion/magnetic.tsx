@@ -1,7 +1,10 @@
 import { useRef, type ReactNode } from "react";
-import { motion, useMousePosition, useMotionValue, useTransform } from "framer-motion";
-import { useReducedMotion } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 
+/**
+ * Pulls its child a few pixels towards the cursor while hovered. The offset is set only
+ * inside pointer handlers and is exactly zero at rest, so re-renders can never displace it.
+ */
 export function Magnetic({
   children,
   strength = 10,
@@ -13,45 +16,31 @@ export function Magnetic({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const x = useTransform(mouseX, (val) => {
-    if (!ref.current || reduceMotion) return 0;
-    const rect = ref.current.getBoundingClientRect();
-    return ((val - rect.left) / rect.width - 0.5) * strength;
-  });
-
-  const y = useTransform(mouseY, (val) => {
-    if (!ref.current || reduceMotion) return 0;
-    const rect = ref.current.getBoundingClientRect();
-    return ((val - rect.top) / rect.height - 0.5) * strength;
-  });
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 300, damping: 30 });
+  const springY = useSpring(y, { stiffness: 300, damping: 30 });
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    if (reduceMotion) return;
-    // Check if pointer is coarse (touch device)
-    if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
-      return;
-    }
-    mouseX.set(e.clientX);
-    mouseY.set(e.clientY);
+    if (reduceMotion || !ref.current) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    const rect = ref.current.getBoundingClientRect();
+    x.set(((e.clientX - rect.left) / rect.width - 0.5) * strength);
+    y.set(((e.clientY - rect.top) / rect.height - 0.5) * strength);
   }
 
   function handleMouseLeave() {
-    mouseX.set(0);
-    mouseY.set(0);
+    x.set(0);
+    y.set(0);
   }
 
   return (
     <motion.div
       ref={ref}
       className={`inline-flex ${className ?? ""}`}
-      style={{ x, y }}
+      style={{ x: springX, y: springY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       {children}
     </motion.div>

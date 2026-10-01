@@ -4,7 +4,7 @@ import type { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-sans text-sm font-semibold tracking-tight select-none whitespace-nowrap rounded-md outline-none focus-visible:ring-2 focus-visible:ring-stone/50 disabled:pointer-events-none disabled:opacity-40",
+  "inline-flex items-center justify-center gap-2 font-sans text-sm font-semibold select-none whitespace-nowrap rounded-md focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-stone disabled:pointer-events-none disabled:opacity-40",
   {
     variants: {
       variant: {
@@ -15,7 +15,7 @@ const buttonVariants = cva(
       },
       size: {
         md: "h-11 px-5",
-        lg: "h-12 px-6 text-base",
+        lg: "h-12 px-6 text-[0.95rem]",
         sm: "h-9 px-3.5 text-xs",
       },
     },

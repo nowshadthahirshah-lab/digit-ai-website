@@ -1,220 +1,476 @@
+// Site copy. No client results, testimonials or statistics appear here unless they can be
+// verified — scenarios and projections are labelled as illustrative wherever they're shown.
+
 export const site = {
   name: "DIGIT",
   legal: "DIGIT AI",
-  tag: "UK conversion studio",
+  tag: "The next generation of business growth.",
+};
+
+export const contact = {
+  owner: "Shah",
+  location: "Canning Town, London",
+  phone: "07405 286985",
+  phoneHref: "tel:+447405286985",
+  whatsapp: "447405286985",
+  whatsappDisplay: "+44 7405 286985",
+  email: "nowshadthahirshah@gmail.com",
 };
 
 export const nav = [
-  { href: "#work", label: "Work" },
-  { href: "#services", label: "Services" },
-  { href: "#diary", label: "Live diary" },
+  { href: "#solutions", label: "Solutions" },
+  { href: "#how-it-works", label: "How it works" },
+  { href: "#industries", label: "Industries" },
+  { href: "#results", label: "Results" },
   { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },
 ] as const;
 
+export const bookLabel = "Book a Growth Audit";
+
 export const hero = {
-  eyebrow: "For UK salons, trades & hospitality",
-  headline: "They're booking your competitor.",
-  lede: "The enquiry came in at 7.14pm. You were on the tools. By morning they'd already booked the salon two streets over. DIGIT builds the site, the live diary, and the follow-up that answers in seconds — so the job lands with you.",
-  primary: "Book a 20-minute call",
-  secondary: "See the live diary",
+  eyebrow: "AI growth systems for UK businesses",
+  lines: ["The next", "generation", "of business", "growth."],
+  lede: "DIGIT AI builds intelligent growth systems that capture opportunities, automate follow-up and turn more conversations into revenue.",
+  primary: "See DIGIT AI in Action",
+  steps: ["Capture", "Respond", "Qualify", "Follow up", "Book", "Grow"],
 };
 
-export const stats = [
-  { value: 40, prefix: "+", suffix: "%", label: "booked jobs" },
-  { value: 2500, prefix: "£", suffix: "", label: "extra work, month one" },
-  { value: 2, prefix: "", suffix: " hrs", label: "saved every day" },
-  { value: 14, prefix: "", suffix: "-day", label: "typical build" },
+export const capabilities = [
+  "Lead capture",
+  "Instant lead response",
+  "Appointment booking",
+  "Missed-call recovery",
+  "AI chat & website assistants",
+  "CRM automation",
+  "Follow-up systems",
+  "Review & reputation automation",
+  "Email · SMS · WhatsApp workflows",
+  "Website conversion optimisation",
+  "Marketing automation",
+  "Business process automation",
+  "AI-powered customer journeys",
 ] as const;
 
-export const cases = [
+export const solutions = [
   {
-    id: "aesthetics",
-    client: "Aesthetics Beyond UK",
-    sector: "Clinic · Manchester",
-    title: "After-hours enquiries used to die in the inbox.",
-    body: "Consultations now book themselves from Instagram, Google, and the site. The diary holds real chair time. Nobody is chasing DMs at 10pm.",
-    stats: [
-      { value: 40, prefix: "+", suffix: "%", label: "booked consultations" },
-      { value: 0, prefix: "", suffix: "", label: "missed after-hours leads" },
-      { value: 8, prefix: "", suffix: " wks", label: "to first lift" },
-    ],
+    key: "capture",
+    title: "Capture",
+    line: "Capture every opportunity.",
+    body: "Calls, web forms, WhatsApp, DMs and ad leads land in one place, so nothing slips through while you’re working.",
+    tools: ["Conversion websites", "Missed-call capture", "Unified inbox"],
+  },
+  {
+    key: "respond",
+    title: "Respond",
+    line: "Respond instantly with AI.",
+    body: "An AI assistant answers questions, shares availability and prices in your tone of voice — day or night.",
+    tools: ["AI chat & website assistants", "WhatsApp & SMS replies"],
+  },
+  {
+    key: "qualify",
+    title: "Qualify",
+    line: "Identify serious prospects.",
+    body: "The right questions sort urgent, high-value enquiries from the rest and route them straight to you.",
+    tools: ["Lead qualification", "CRM automation"],
+  },
+  {
+    key: "follow",
+    title: "Follow up",
+    line: "Automatically follow up.",
+    body: "Quotes, quiet leads and no-shows get timely, human-sounding follow-ups by email, SMS or WhatsApp.",
+    tools: ["Follow-up sequences", "Email · SMS · WhatsApp workflows"],
+  },
+  {
+    key: "book",
+    title: "Book",
+    line: "Turn conversations into appointments.",
+    body: "Live availability and instant booking, with reminders and rebooking that protect your diary.",
+    tools: ["Appointment booking", "Reminders & rebooking"],
+  },
+  {
+    key: "convert",
+    title: "Convert",
+    line: "Turn more opportunities into customers.",
+    body: "Conversion-focused pages, offers and nudges at the moments prospects are deciding.",
+    tools: ["Website conversion optimisation", "Marketing automation"],
+  },
+  {
+    key: "grow",
+    title: "Grow",
+    line: "Build a repeatable growth system.",
+    body: "Reviews, reactivation and clear reporting that compound month after month.",
+    tools: ["Review & reputation automation", "Reactivation", "Reporting"],
+  },
+] as const;
+
+export const pipeline = [
+  { key: "leads", title: "Leads", body: "Calls, forms, WhatsApp, DMs, ads.", meta: "Every channel" },
+  { key: "response", title: "AI response", body: "Answered in seconds, in your voice.", meta: "24 / 7" },
+  { key: "qualify", title: "Qualification", body: "Need, urgency, budget, fit.", meta: "Scored & routed" },
+  { key: "follow", title: "Follow-up", body: "Timely nudges until they decide.", meta: "Multi-channel" },
+  { key: "booking", title: "Booking", body: "Straight into real availability.", meta: "Live diary" },
+  { key: "customer", title: "Customer", body: "Reminders, reviews, rebooking.", meta: "Retained" },
+  { key: "revenue", title: "Revenue", body: "Tracked back to the source.", meta: "Reported" },
+] as const;
+
+export const chatDemo = {
+  label: "Example conversation · illustrative",
+  channel: "Missed call · 19:42 · WhatsApp auto-reply",
+  messages: [
+    { from: "ai", text: "Hi — sorry we missed your call. I’m the roofing team’s assistant. What can we help with?" },
+    { from: "customer", text: "Got a leak over the back bedroom. Can someone look this week?" },
+    { from: "ai", text: "We can. Is it leaking now, or only when it rains?" },
+    { from: "customer", text: "Only when it rains." },
+    { from: "ai", text: "Thanks. I have Thursday 8:30am or Friday 2pm for a site visit. Which suits?" },
+    { from: "customer", text: "Thursday please" },
+    { from: "ai", text: "Booked for Thursday 8:30am ✓ You’ll get a reminder the day before." },
+  ],
+} as const;
+
+export type IndustryIcon =
+  | "sparkles"
+  | "smile"
+  | "heart"
+  | "scale"
+  | "calculator"
+  | "house"
+  | "droplets"
+  | "zap"
+  | "car"
+  | "dumbbell"
+  | "scissors"
+  | "utensils"
+  | "building"
+  | "hammer"
+  | "bag"
+  | "briefcase";
+
+export const industries: {
+  key: string;
+  name: string;
+  /** Who the industry is, as a phrase: “how it works for dental practices”. */
+  audience: string;
+  icon: IndustryIcon;
+  problem: string;
+  flow: string[];
+  outcome: string;
+}[] = [
+  {
+    key: "aesthetics",
+    name: "Aesthetics & beauty",
+    audience: "aesthetics & beauty clinics",
+    icon: "sparkles",
+    problem: "DMs and after-hours enquiries go cold before anyone replies.",
+    flow: ["Instagram or web enquiry", "AI reply with treatments & prices", "Consultation questions", "Booked into the live diary", "Reminders & aftercare follow-up"],
+    outcome: "Consultations booked while you’re still treating — without living in your inbox.",
+  },
+  {
+    key: "dental",
+    name: "Dental",
+    audience: "dental practices",
+    icon: "smile",
+    problem: "Phones ring out during treatment and new-patient enquiries book elsewhere.",
+    flow: ["Missed call", "Instant text-back", "New-patient questions answered", "Appointment booked", "Recall & hygiene reminders"],
+    outcome: "New patients captured at the moment they’re ready, with recalls that run themselves.",
+  },
+  {
+    key: "healthcare",
+    name: "Private healthcare",
+    audience: "private healthcare clinics",
+    icon: "heart",
+    problem: "Slow replies to self-pay enquiries send patients to faster clinics.",
+    flow: ["Web or phone enquiry", "AI explains services & fees", "Triage questions", "Consultation booked", "Pre-visit forms & reminders"],
+    outcome: "A faster, calmer first response — and fewer empty appointment slots.",
+  },
+  {
+    key: "solicitors",
+    name: "Solicitors",
+    audience: "solicitors",
+    icon: "scale",
+    problem: "Enquiries arrive out of hours, and the first firm to respond usually wins.",
+    flow: ["Web or phone enquiry", "Instant acknowledgement", "Matter-type qualification", "Consultation booked", "Follow-up until instructed"],
+    outcome: "Every potential client acknowledged quickly, and qualified before a fee-earner spends time.",
+  },
+  {
+    key: "accountants",
+    name: "Accountants",
+    audience: "accountancy firms",
+    icon: "calculator",
+    problem: "Busy seasons bury new enquiries and prospects drift away.",
+    flow: ["Enquiry", "AI answers service & fee questions", "Qualification: turnover, services", "Discovery call booked", "Onboarding & document chasers"],
+    outcome: "Prospects move from enquiry to onboarding without manual chasing.",
+  },
+  {
+    key: "roofing",
+    name: "Roofing",
+    audience: "roofing companies",
+    icon: "house",
+    problem: "You’re on a roof when the phone rings — the job goes to whoever answers.",
+    flow: ["Missed call", "AI instant response", "Lead qualification", "Site-visit booking", "Automated follow-up"],
+    outcome: "More site visits from the calls you’d otherwise miss, and quotes that actually get chased.",
+  },
+  {
+    key: "plumbing",
+    name: "Plumbing",
+    audience: "plumbers",
+    icon: "droplets",
+    problem: "Urgent calls come in while your hands are full on another job.",
+    flow: ["Missed call", "Instant text-back", "Urgency & postcode check", "Job slot booked", "Review request after the job"],
+    outcome: "Urgent work captured and booked, even mid-job.",
+  },
+  {
+    key: "electrical",
+    name: "Electrical",
+    audience: "electricians",
+    icon: "zap",
+    problem: "Quote requests pile up, and prospects hire whoever quotes first.",
+    flow: ["Web enquiry", "Instant reply with next steps", "Photos & job details collected", "Survey booked", "Quote follow-up sequence"],
+    outcome: "Faster quotes and fewer jobs lost to silence.",
+  },
+  {
+    key: "garages",
+    name: "Garages & automotive",
+    audience: "garages",
+    icon: "car",
+    problem: "MOT and service reminders rely on memory and paper.",
+    flow: ["Due-date trigger or enquiry", "Automated reminder", "Online booking", "Work-approval updates", "Review request"],
+    outcome: "A workshop diary that keeps refilling with returning customers.",
+  },
+  {
+    key: "fitness",
+    name: "Fitness",
+    audience: "gyms & fitness studios",
+    icon: "dumbbell",
+    problem: "Trial sign-ups don’t show, and members drift away quietly.",
+    flow: ["Trial enquiry", "Instant welcome", "Goal questions", "Intro session booked", "Attendance nudges & win-back"],
+    outcome: "More trials turned into members, with early warning before they leave.",
+  },
+  {
+    key: "salons",
+    name: "Salons",
+    audience: "salons",
+    icon: "scissors",
+    problem: "Cancellations leave gaps, and the phone rings mid-appointment.",
+    flow: ["Call, DM or web enquiry", "AI replies with availability", "Booked into the live diary", "Reminders to reduce no-shows", "Rebooking prompts"],
+    outcome: "A fuller book and fewer empty chairs.",
+  },
+  {
+    key: "restaurants",
+    name: "Restaurants",
+    audience: "restaurants",
+    icon: "utensils",
+    problem: "The phone rings through service while tables sit empty.",
+    flow: ["Web, Google or phone enquiry", "Instant booking link", "Table booked", "Confirmation & reminder", "Review request"],
+    outcome: "Covers booked without anyone leaving the pass.",
+  },
+  {
+    key: "property",
+    name: "Property",
+    audience: "property agents",
+    icon: "building",
+    problem: "Viewing requests stack up across portals and inboxes.",
+    flow: ["Portal or web enquiry", "Instant reply", "Buyer or tenant qualification", "Viewing booked", "Post-viewing follow-up"],
+    outcome: "Serious applicants booked in; time-wasters filtered out.",
+  },
+  {
+    key: "home",
+    name: "Home services",
+    audience: "home-services businesses",
+    icon: "hammer",
+    problem: "Leads from ads and directories wait hours for a reply.",
+    flow: ["Lead from ads or directories", "Instant reply", "Job details & postcode check", "Visit booked", "Quote follow-up"],
+    outcome: "Ad spend that turns into booked visits, not voicemails.",
+  },
+  {
+    key: "retail",
+    name: "Local retail",
+    audience: "local shops",
+    icon: "bag",
+    problem: "Customers ask about stock and opening hours, then buy elsewhere.",
+    flow: ["Question via web, WhatsApp or social", "AI answers stock & hours", "Reserve or click-and-collect", "Pickup reminder", "Loyalty & review follow-up"],
+    outcome: "Questions answered instantly and turned into visits.",
+  },
+  {
+    key: "professional",
+    name: "Professional services",
+    audience: "professional-services firms",
+    icon: "briefcase",
+    problem: "Hours go on enquiries that were never a fit.",
+    flow: ["Enquiry", "Instant response", "Fit qualification", "Discovery call booked", "Proposal follow-up"],
+    outcome: "Your time spent on qualified conversations.",
+  },
+];
+
+export const diary = {
+  eyebrow: "Interactive demo",
+  headline: "Booking, handled.",
+  lede: "A working slice of the booking flow we install. Try a slot — the confirmation is exactly what your customer would see, not a “we’ll email you.”",
+  business: "Example clinic",
+  service: "Hydrafacial · 45 min",
+};
+
+export const calculator = {
+  label: "Example projection",
+  headline: "What missed enquiries could be worth.",
+  lede: "Enter your own numbers. This models the enquiries you already know you miss — it’s a projection to size the opportunity, not a promise of revenue.",
+  disclaimer: "Illustrative only. Based entirely on the figures you enter; actual results depend on your market, offer and follow-through.",
+};
+
+export const scenarios = [
+  {
+    key: "clinic",
+    tab: "Aesthetics clinic",
+    business: "A city-centre aesthetics clinic",
     video: "/media/case-aesthetics.mp4",
     poster: "/media/case-aesthetics-poster.jpg",
+    problem: "Enquiries arrive from Instagram and Google after hours. By the time someone replies the next morning, many have booked elsewhere.",
+    built: "An AI assistant on the website and Instagram, connected to a live diary.",
+    automation: ["Instant reply with treatment info", "Consultation questions", "Booked into real availability", "Reminders & aftercare follow-up"],
+    outcome: "Designed so after-hours enquiries are answered and booked the same evening — not the next morning.",
+    before: ["9:40pm DM", "No reply until 10am", "Booked with another clinic"],
+    after: ["9:40pm DM", "AI replies in seconds", "Consultation booked"],
   },
   {
-    id: "roofing",
-    client: "Premium Roofing Services",
-    sector: "Trade · Surrey",
-    title: "Quotes sat for five days. The work went elsewhere.",
-    body: "A live diary on the site, missed-call text-back, and a page that actually says what a new roof costs. The first month paid for the build.",
-    stats: [
-      { value: 2500, prefix: "£", suffix: "", label: "extra work, month one" },
-      { value: 2, prefix: "", suffix: " hrs", label: "quote-to-job, from 5 days" },
-      { value: 94, prefix: "", suffix: "%", label: "enquiries answered in 3 min" },
-    ],
+    key: "roofing",
+    tab: "Roofing company",
+    business: "A family-run roofing company",
     video: "/media/case-roofing.mp4",
     poster: "/media/case-roofing-poster.jpg",
+    problem: "Calls come in while the team is up on a roof. Quotes go out, then nobody has time to follow up.",
+    built: "Missed-call text-back, a qualification flow and automated quote follow-up.",
+    automation: ["Missed call → instant text", "Job details & photos collected", "Site visit booked", "Quote follow-up sequence"],
+    outcome: "Designed so every missed call becomes a conversation, and every quote gets chased.",
+    before: ["Missed call", "Voicemail", "Next roofer answers"],
+    after: ["Missed call", "Instant text-back", "Site visit booked"],
   },
   {
-    id: "coffee",
-    client: "Downtown Coffee & Bistro",
-    sector: "Hospitality · Leeds",
-    title: "The phone rang through service. Tables sat empty at 7.",
-    body: "Covers now book from the site and Google. Evenings fill without the owner leaving the pass. No-shows dropped because a reminder actually goes out.",
-    stats: [
-      { value: 2, prefix: "", suffix: " hrs", label: "saved on bookings, every day" },
-      { value: 28, prefix: "+", suffix: "%", label: "evening covers" },
-      { value: 4, prefix: "", suffix: "%", label: "no-show rate, from 18%" },
-    ],
+    key: "restaurant",
+    tab: "Restaurant",
+    business: "An independent restaurant",
     video: "/media/case-coffee.mp4",
     poster: "/media/case-coffee-poster.jpg",
-  },
-] as const;
-
-export const services = [
-  {
-    n: "01",
-    title: "Conversion websites",
-    body: "A site that answers the three questions before they book: can you do it, when, and what does it cost. Built to load fast on a wet high street with one bar of signal.",
-  },
-  {
-    n: "02",
-    title: "Live diary",
-    body: "Your real availability, on the site. No “email us for a slot.” They pick a time. It’s in the book. Cancellations free the chair automatically.",
-  },
-  {
-    n: "03",
-    title: "Instant capture",
-    body: "Web, WhatsApp, missed-call text. Every enquiry answered in under a minute — even at 9pm — with a hold on a real slot, not a “we’ll call you back.”",
-  },
-  {
-    n: "04",
-    title: "Local search",
-    body: "Google Business, maps, and the pages that rank for “roofer near me” and “facial in [town].” Written like a local, structured like a machine.",
-  },
-  {
-    n: "05",
-    title: "Review engine",
-    body: "The right ask, at the right moment. A page of five-star proof instead of three forgotten ones from 2019.",
-  },
-  {
-    n: "06",
-    title: "Always-on follow-up",
-    body: "The quote that didn’t close. The client who went quiet. Brought back without you chasing, on a cadence that doesn’t feel like spam.",
-  },
-] as const;
-
-export const why = [
-  "Two build slots a month. That’s the point — we don’t scale by rushing.",
-  "Owner-operators only. If you already have a marketing department, we’re not for you.",
-  "UK studio. You speak to the person who designed the thing, not a portal.",
-  "Live in 14 days, not 14 weeks of moodboards.",
-  "You own every login. We are not a platform that holds your leads hostage.",
-  "We prove the diary on your real hours before we talk about brand.",
-] as const;
-
-export const testimonials = [
-  {
-    quote:
-      "We used to lose Friday-night Botox enquiries to whoever answered first. Now the diary fills while I’m still treating. Forty percent more consultations, and I didn’t hire a receptionist.",
-    name: "Amira Khan",
-    role: "Founder, Aesthetics Beyond UK",
-  },
-  {
-    quote:
-      "I’d quote a roof, then spend three days playing phone tag. The first month we put the diary live we booked two extra jobs — about two and a half grand — that would have gone to the next van on Checkatrade.",
-    name: "Dan Hargreaves",
-    role: "Owner, Premium Roofing Services",
-  },
-  {
-    quote:
-      "Saturday lunch used to mean the phone glued to my ear and two tables sitting empty. Two hours back, every day. Evenings are booked before the board goes up.",
-    name: "Elena Rossi",
-    role: "Owner, Downtown Coffee & Bistro",
+    problem: "The phone rings through service, bookings get missed, and no-shows leave tables empty.",
+    built: "Online booking from the website and Google, with confirmations and reminders.",
+    automation: ["Booking link from web & Google", "Instant confirmation", "Reminder before the visit", "Review request afterwards"],
+    outcome: "Designed to fill tables without anyone leaving the pass, with reminders to cut no-shows.",
+    before: ["Phone rings in service", "Call missed", "Empty table at 7pm"],
+    after: ["Books online", "Confirmed & reminded", "Table filled"],
   },
 ] as const;
 
 export const plans = [
   {
-    name: "Site",
-    price: "£1,950",
-    cadence: "one-off",
-    blurb: "The front door. Fast, clear, built to convert on a phone.",
+    name: "Foundation",
+    tagline: "For businesses starting their AI journey.",
+    price: "£199",
+    cadence: "/month",
+    setup: "+ £350 one-time setup",
+    value: "Protect the revenue already in your diary — reminders, rebooking and reporting on autopilot.",
+    fit: "Typically 10–20 appointments a week",
     featured: false,
     items: [
-      "Conversion homepage + four inner pages",
-      "Mobile-first, Core Web Vitals in the green",
-      "Enquiry form and click-to-call",
-      "Google Business polish",
-      "14-day build",
-    ],
-  },
-  {
-    name: "Site + Diary",
-    price: "£3,450",
-    cadence: "one-off",
-    blurb: "They pick a time. It’s in the book. This is the one most owners choose.",
-    featured: true,
-    items: [
-      "Everything in Site",
-      "Live diary on the site, your real hours",
-      "Instant capture — web and missed-call text",
-      "Review ask after every job",
-      "30 days of tuning after launch",
+      "Automated appointment reminders (SMS / WhatsApp)",
+      "Cancellation rebooking automation",
+      "Monthly performance reports",
+      "Email support",
+      "Works with any booking system",
     ],
   },
   {
     name: "Growth",
-    price: "£4,950",
-    cadence: "one-off, first month of ads in",
-    blurb: "The full stack: site, diary, and paid demand that doesn’t leak.",
+    tagline: "For businesses that want automated lead capture, follow-up and booking.",
+    price: "£349",
+    cadence: "/month",
+    setup: "+ £500 one-time setup",
+    value: "Answer every enquiry instantly and turn more of them into booked appointments.",
+    fit: "Typically 30–60 appointments a week",
+    featured: true,
+    items: [
+      "Everything in Foundation",
+      "Automated enquiry responses",
+      "Instant booking conversion",
+      "Customer segmentation",
+      "Weekly performance reports",
+      "Phone + email support",
+    ],
+  },
+  {
+    name: "Scale",
+    tagline: "For businesses that want a complete AI growth infrastructure.",
+    price: "£599",
+    cadence: "/month",
+    setup: "+ £1,200 setup + £299 ad optimisation",
+    value: "Demand generation, conversion and retention running as one connected system.",
+    fit: "Typically 60+ appointments a week",
     featured: false,
     items: [
-      "Everything in Site + Diary",
-      "Google or Meta, set up and first month managed",
-      "Monthly review for 90 days",
-      "Priority slot for copy and page changes",
-      "Hold on the next two change windows",
+      "Everything in Foundation & Growth",
+      "Ad strategy & optimisation",
+      "Funnel setup & management",
+      "Dedicated account manager",
+      "Quarterly strategy reviews",
+      "24-hour response time",
     ],
   },
 ] as const;
 
+export const pricingNote =
+  "No long-term contracts. Month-to-month billing, with a 7-day money-back guarantee on your setup fee.";
+
 export const faqs = [
   {
-    q: "How long does a build take?",
-    a: "Fourteen days from the kickoff call, provided we have your hours, services, and a handful of photos. The diary is live on day ten so you can test it on real enquiries before we call it done.",
+    q: "What does DIGIT AI actually do?",
+    a: "We design and run automated growth systems: capturing enquiries from every channel, replying instantly with AI, qualifying, following up and booking — then reporting on exactly what the system produced.",
   },
   {
-    q: "Do I need to be technical?",
-    a: "No. You send us the hours, the price list, and who you want to attract. We do the rest. After launch you get a 20-minute walkthrough — then you can ignore the admin if you like.",
+    q: "Is this just a chatbot?",
+    a: "No. An AI assistant is one part of it. The value is the whole system — capture, instant response, follow-up, booking, reminders and reviews working together and connected to the tools you already use.",
   },
   {
-    q: "What if I already have a website?",
-    a: "Most of our work is replacing sites that look fine and convert poorly. We migrate what still earns its place and throw out the rest. You keep the domain.",
+    q: "How long does setup take?",
+    a: "Foundation and Growth: 24–48 hours. We handle everything — you approve and we launch. Scale (with ads): 3–5 days including ad funnel setup.",
   },
   {
-    q: "Do you lock me into a monthly fee?",
-    a: "No. Site and Site + Diary are one-off. Hosting is yours. If you want us on the line after 30 days that’s a separate, cancellable retainer — never a condition of keeping the diary.",
+    q: "Do I need technical knowledge?",
+    a: "No. We do all the setup. Your team just uses it normally. We provide training and ongoing support.",
   },
   {
-    q: "Who is this not for?",
-    a: "National chains, marketplaces, and anyone whose idea of a website is a brochure. We work with owner-run salons, clinics, trades, and hospitality in the UK — people who still pick up the phone.",
+    q: "Does it work with my booking system?",
+    a: "Yes. We integrate with Setmore, Fresha, Acuity, Google Calendar and most booking systems. If yours isn’t on the list, we can usually make it work.",
   },
   {
-    q: "What happens on the call?",
-    a: "Twenty minutes. We look at where enquiries die, whether a diary would actually fill, and if we have a slot this month. If we’re not a fit, we’ll say so in the first five minutes.",
+    q: "Do you guarantee results?",
+    a: "No — and be wary of anyone who does. Results depend on your market, offer and follow-through. What we do guarantee is transparency: you’ll see exactly how many enquiries were captured, answered, followed up and booked.",
+  },
+  {
+    q: "What if it doesn’t work for us?",
+    a: "There’s a 7-day money-back guarantee on your setup fee. If you’re not happy, we refund it. No questions asked.",
+  },
+  {
+    q: "Can I cancel anytime?",
+    a: "Yes. No long-term contracts — month-to-month billing. Cancel after month one if it isn’t working for you.",
+  },
+  {
+    q: "How will I know if it’s working?",
+    a: "Monthly reports on Foundation, weekly reports on Growth, and monthly deep-dive reviews on Scale. You’ll see exact numbers: enquiries captured, conversations handled, appointments booked and saved.",
+  },
+  {
+    q: "Can I just message you on WhatsApp?",
+    a: "Yes — WhatsApp is the fastest way to reach us: +44 7405 286985. Send a message any time and we’ll reply with a time for your growth audit.",
+  },
+  {
+    q: "What happens on a growth audit?",
+    a: "A short call where we map where your enquiries come from, where they leak, and which automations would make the biggest difference. If we’re not the right fit, we’ll tell you.",
   },
 ] as const;
 
 export const cta = {
-  eyebrow: "September",
-  headline: "Two build slots left this month.",
-  lede: "We take two builds at a time so the diary is live in 14 days, not queued behind a dozen other sites. If you want in, the next call is 20 minutes.",
-  button: "Claim a slot",
+  eyebrow: "Growth audit",
+  headline: "Ready to build your growth system?",
+  lede: "We’ll map where your enquiries leak today and what an automated system would change — in plain English, in one short call.",
 };
 
 export const footer = {
-  note: "DIGIT AI is a UK conversion studio. We build the site, the live diary, and the follow-up for salons, trades, and hospitality.",
-  email: "hello@digitai.uk",
+  note: "DIGIT AI builds intelligent growth systems for UK businesses — capturing opportunities, automating follow-up and turning more conversations into revenue.",
 };

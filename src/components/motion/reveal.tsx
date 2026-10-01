@@ -1,5 +1,5 @@
 import { useRef, type ReactNode } from "react";
-import { motion, useInView as useInViewMotion } from "framer-motion";
+import { motion, useInView as useInViewMotion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { transition } from "@/lib/animations";
 
@@ -15,6 +15,7 @@ export function Reveal({
   as?: "div" | "li" | "article" | "section";
 }) {
   const ref = useRef<any>(null);
+  const reduceMotion = useReducedMotion();
   const isInView = useInViewMotion(ref, {
     once: true,
     amount: "some",
@@ -32,8 +33,8 @@ export function Reveal({
     <MotionTag
       ref={ref}
       className={cn(className)}
-      initial={{ opacity: 0, y: 18 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+      animate={isInView || reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
       transition={{ ...transition.normal, delay: delay / 1000 }}
     >
       {children}

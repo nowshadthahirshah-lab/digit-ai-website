@@ -13,7 +13,7 @@ export function Logo({ className, markOnly = false }: { className?: string; mark
       {markOnly ? (
         <span className="sr-only">DIGIT AI</span>
       ) : (
-        <span className="font-display text-lg font-extrabold tracking-tight leading-none" style={{ color: "#CDFF00" }}>
+        <span className="font-display text-xl font-extrabold tracking-[0.02em] leading-none" style={{ color: "#CDFF00" }}>
           DIGIT AI
         </span>
       )}

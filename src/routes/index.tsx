@@ -2,48 +2,52 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/layout/nav";
 import { SiteFooter } from "@/components/layout/footer";
+import { CursorGlow } from "@/components/motion/cursor-glow";
 import { Hero } from "@/components/sections/hero";
-import { StatsBar } from "@/components/sections/stats";
-import { Cases } from "@/components/sections/cases";
-import { Services } from "@/components/sections/services";
-import { WhyUs } from "@/components/sections/why";
+import { Capabilities } from "@/components/sections/capabilities";
+import { Solutions } from "@/components/sections/solutions";
+import { Pipeline } from "@/components/sections/pipeline";
+import { Industries } from "@/components/sections/industries";
 import { LiveDiary } from "@/components/sections/diary";
-import { Roi } from "@/components/sections/roi";
-import { Testimonials } from "@/components/sections/testimonials";
+import { Results } from "@/components/sections/results";
+import { Scenarios } from "@/components/sections/scenarios";
 import { Pricing } from "@/components/sections/pricing";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/cta";
 import { BookDialog } from "@/components/sections/book-dialog";
+import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
   const [book, setBook] = useState(false);
+  const openBook = () => setBook(true);
 
   return (
     <div className="relative min-h-svh overflow-x-clip bg-bg text-fg">
-      <div className="grain" aria-hidden="true" />
       <a
-        href="#work"
+        href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-stone focus:px-3 focus:py-2 focus:text-stone-fg"
       >
-        Skip to work
+        Skip to content
       </a>
-      <SiteNav onBook={() => setBook(true)} />
-      <main>
-        <Hero onBook={() => setBook(true)} />
-        <StatsBar />
-        <Cases />
-        <Services />
-        <WhyUs />
+      <CursorGlow />
+      <SiteNav onBook={openBook} />
+      <main id="main">
+        <Hero onBook={openBook} />
+        <Capabilities />
+        <Solutions />
+        <Pipeline />
+        <Industries />
         <LiveDiary />
-        <Roi />
-        <Testimonials />
-        <Pricing onBook={() => setBook(true)} />
+        <Results />
+        <Scenarios />
+        <Pricing onBook={openBook} />
         <Faq />
-        <FinalCta onBook={() => setBook(true)} />
+        <FinalCta onBook={openBook} />
       </main>
       <SiteFooter />
+      <WhatsAppFloat />
       <BookDialog open={book} onOpenChange={setBook} />
     </div>
   );

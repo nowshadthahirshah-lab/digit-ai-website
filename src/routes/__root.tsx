@@ -5,16 +5,16 @@ import appCss from "../styles.css?url";
 
 const APP_NAME = "DIGIT AI";
 const DESCRIPTION =
-  "They're booking your competitor. DIGIT builds conversion websites, live diaries, and follow-up for UK salons, trades, and hospitality.";
+  "The next generation of business growth. DIGIT AI builds intelligent growth systems that capture opportunities, automate follow-up and turn more conversations into revenue.";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { title: APP_NAME },
       { name: "description", content: DESCRIPTION },
-      { name: "theme-color", content: "#0a0a0c" },
+      { name: "theme-color", content: "#05060a" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -22,7 +22,8 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Syne:wght@600;700;800&display=swap",
+        // One variable Archivo file covers body text and the condensed display cut (wdth axis).
+        href: "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;500&display=swap",
       },
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },

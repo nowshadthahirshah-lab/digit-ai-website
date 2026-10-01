@@ -1,31 +1,40 @@
+import { ArrowRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/brand/whatsapp-icon";
 import { Button } from "@/components/ui/button";
+import { Galaxy } from "@/components/motion/galaxy";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Reveal } from "@/components/motion/reveal";
-import { cta } from "@/lib/copy";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { bookLabel, contact, cta } from "@/lib/copy";
+import { waLink, waLinkProps, waMessages } from "@/lib/whatsapp";
 
 export function FinalCta({ onBook }: { onBook: () => void }) {
   return (
-    <section className="relative overflow-hidden">
+    <section id="contact" className="relative isolate overflow-hidden">
+      <Galaxy variant="ambient" className="-z-10" />
       <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          background:
-            "radial-gradient(800px 280px at 50% 120%, rgb(212 207 198 / 0.12), transparent 70%)",
-        }}
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[70%]"
+        style={{ background: "radial-gradient(60% 80% at 50% 100%, rgb(205 255 0 / 0.14), transparent 70%)" }}
       />
-      <div className="relative mx-auto max-w-3xl px-5 py-24 text-center sm:px-8 md:py-32">
+      <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8 md:py-36">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-stone">
-            {cta.eyebrow}
-          </p>
-          <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight sm:text-6xl">
-            {cta.headline}
-          </h2>
-          <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-muted">{cta.lede}</p>
-          <div className="mt-9 flex justify-center">
-            <Magnetic>
-              <Button size="lg" onClick={onBook}>
-                {cta.button}
+          <Eyebrow className="justify-center">{cta.eyebrow}</Eyebrow>
+          <h2 className="mx-auto mt-5 max-w-[12ch] font-display text-[clamp(3rem,13vw,6.5rem)]">{cta.headline}</h2>
+          <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-muted">{cta.lede}</p>
+          <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <Magnetic className="w-full sm:w-auto">
+              <Button size="lg" className="btn-glow w-full sm:w-auto" onClick={onBook}>
+                {bookLabel}
+                <ArrowRight className="size-4" />
+              </Button>
+            </Magnetic>
+            <Magnetic className="w-full sm:w-auto">
+              <Button size="lg" variant="ghost" className="w-full bg-bg/40 backdrop-blur-sm sm:w-auto" asChild>
+                <a href={waLink(waMessages.audit)} {...waLinkProps}>
+                  <WhatsAppIcon className="text-[#25D366]" />
+                  WhatsApp {contact.whatsappDisplay}
+                </a>
               </Button>
             </Magnetic>
           </div>

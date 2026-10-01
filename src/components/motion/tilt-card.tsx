@@ -1,8 +1,10 @@
 import { useRef, type ReactNode } from "react";
-import { motion, useMousePosition, useMotionValue, useTransform } from "framer-motion";
-import { useReducedMotion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 
+/**
+ * Subtle 3D tilt towards the cursor. Rotation is written only by pointer handlers and
+ * returns to exactly zero on leave, so a card can never be left stuck at an angle.
+ */
 export function TiltCard({
   children,
   className,
@@ -14,51 +16,31 @@ export function TiltCard({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useTransform(mouseY, (val) => {
-    if (!ref.current || reduceMotion) return 0;
-    const rect = ref.current.getBoundingClientRect();
-    const py = (val - rect.top) / rect.height;
-    return (0.5 - py) * max;
-  });
-
-  const rotateY = useTransform(mouseX, (val) => {
-    if (!ref.current || reduceMotion) return 0;
-    const rect = ref.current.getBoundingClientRect();
-    const px = (val - rect.left) / rect.width;
-    return (px - 0.5) * max;
-  });
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+  const springX = useSpring(rotateX, { stiffness: 260, damping: 28 });
+  const springY = useSpring(rotateY, { stiffness: 260, damping: 28 });
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    if (reduceMotion) return;
-    // Check if pointer is coarse (touch device)
-    if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
-      return;
-    }
-    mouseX.set(e.clientX);
-    mouseY.set(e.clientY);
+    if (reduceMotion || !ref.current) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    const rect = ref.current.getBoundingClientRect();
+    rotateX.set((0.5 - (e.clientY - rect.top) / rect.height) * max);
+    rotateY.set(((e.clientX - rect.left) / rect.width - 0.5) * max);
   }
 
   function handleMouseLeave() {
-    mouseX.set(0);
-    mouseY.set(0);
+    rotateX.set(0);
+    rotateY.set(0);
   }
 
   return (
     <motion.div
       ref={ref}
-      className={cn("will-change-transform", className)}
-      style={{
-        perspective: 900,
-        rotateX,
-        rotateY,
-      }}
+      className={className}
+      style={{ transformPerspective: 900, rotateX: springX, rotateY: springY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       {children}
     </motion.div>
