@@ -14,7 +14,7 @@ export function Scenarios() {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-32">
         <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Eyebrow n="06">Scenarios</Eyebrow>
+            <Eyebrow n="07">Scenarios</Eyebrow>
             <h2 className="mt-4 max-w-[11ch] font-display text-[clamp(2.75rem,12vw,5.5rem)]">
               Before DIGIT AI. After DIGIT AI.
             </h2>

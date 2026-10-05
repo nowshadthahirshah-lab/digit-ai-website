@@ -29,7 +29,7 @@ export function Faq() {
     <section id="faq" className="border-t border-line bg-surface">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 md:py-32 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <Reveal className="lg:sticky lg:top-28 lg:self-start">
-          <Eyebrow n="08">FAQ</Eyebrow>
+          <Eyebrow n="09">FAQ</Eyebrow>
           <h2 className="mt-4 max-w-[11ch] font-display text-[clamp(2.75rem,12vw,5.5rem)]">Questions, answered.</h2>
         </Reveal>
         <Reveal delay={60}>

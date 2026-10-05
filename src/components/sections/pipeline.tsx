@@ -49,7 +49,7 @@ export function Pipeline() {
 
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-32">
         <Reveal className="max-w-3xl">
-          <Eyebrow n="02">How it works</Eyebrow>
+          <Eyebrow n="03">How it works</Eyebrow>
           <h2 className="mt-4 max-w-[12ch] font-display text-[clamp(2.75rem,12vw,5.5rem)]">
             From missed call to booked customer.
           </h2>

@@ -51,7 +51,7 @@ export function Industries() {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-32">
         <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Eyebrow n="03">Industries</Eyebrow>
+            <Eyebrow n="04">Industries</Eyebrow>
             <h2 className="mt-4 max-w-[12ch] font-display text-[clamp(2.75rem,12vw,5.5rem)]">
               Built for modern businesses.
             </h2>

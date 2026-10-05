@@ -17,10 +17,13 @@ export const contact = {
   whatsapp: "447405286985",
   whatsappDisplay: "+44 7405 286985",
   email: "nowshadthahirshah@gmail.com",
+  legalName: "THAHIRSHAH NOWSHAD",
+  postalAddress: "[full postal address]",
 };
 
 export const nav = [
   { href: "#solutions", label: "Solutions" },
+  { href: "#websites", label: "Websites" },
   { href: "#how-it-works", label: "How it works" },
   { href: "#industries", label: "Industries" },
   { href: "#results", label: "Results" },
@@ -39,6 +42,7 @@ export const hero = {
 };
 
 export const capabilities = [
+  "Website design",
   "Lead capture",
   "Instant lead response",
   "Appointment booking",
@@ -53,6 +57,36 @@ export const capabilities = [
   "Business process automation",
   "AI-powered customer journeys",
 ] as const;
+
+export const websites = {
+  eyebrow: "Websites",
+  headline: "Websites that turn visitors into booked jobs.",
+  intro:
+    "A fast, mobile-first website built for UK small businesses, especially independent garages and MOT centres. It’s designed so customers can find you on Google, call you in one tap and send a booking request in under a minute.",
+  features: [
+    { title: "Mobile-first", body: "built for the phone your customers are holding" },
+    { title: "Tap-to-call and WhatsApp", body: "buttons on every page" },
+    { title: "Booking request form", body: "service, vehicle reg or details, preferred date, sent straight to your inbox" },
+    { title: "Google-ready", body: "proper page titles, local SEO basics and help setting up your Google Business Profile" },
+    { title: "Fast", body: "lightweight pages that load quickly on mobile data" },
+  ],
+  offer: {
+    label: "Founding-client offer · first 3 clients",
+    price: "£495",
+    priceNote: "for your website",
+    standard: "Standard price £795–£1,495",
+    terms: [
+      { title: "Nothing upfront", body: "50% when you approve the design, 50% at go-live." },
+      {
+        title: "Free concept homepage first",
+        body: "I’ll design your new homepage before you commit to anything. If you don’t like it, you pay nothing.",
+      },
+    ],
+  },
+  cta: "Get my free concept homepage",
+  ctaMessage: "Website: free concept homepage",
+  smallPrint: "Founding price limited to 3 clients. Prices are fixed and agreed in writing before work starts.",
+};
 
 export const solutions = [
   {
@@ -361,11 +395,18 @@ export const scenarios = [
   },
 ] as const;
 
+// One place for the monthly prices. Growth and Scale stay as placeholders until the owner confirms them.
+export const monthlyPrices = {
+  foundation: "£199",
+  growth: "£___",
+  scale: "£___",
+} as const;
+
 export const plans = [
   {
     name: "Foundation",
     tagline: "For businesses starting their AI journey.",
-    price: "£199",
+    price: monthlyPrices.foundation,
     cadence: "/month",
     setup: "+ £350 one-time setup",
     value: "Protect the revenue already in your diary — reminders, rebooking and reporting on autopilot.",
@@ -382,7 +423,7 @@ export const plans = [
   {
     name: "Growth",
     tagline: "For businesses that want automated lead capture, follow-up and booking.",
-    price: "£349",
+    price: monthlyPrices.growth,
     cadence: "/month",
     setup: "+ £500 one-time setup",
     value: "Answer every enquiry instantly and turn more of them into booked appointments.",
@@ -400,7 +441,7 @@ export const plans = [
   {
     name: "Scale",
     tagline: "For businesses that want a complete AI growth infrastructure.",
-    price: "£599",
+    price: monthlyPrices.scale,
     cadence: "/month",
     setup: "+ £1,200 setup + £299 ad optimisation",
     value: "Demand generation, conversion and retention running as one connected system.",

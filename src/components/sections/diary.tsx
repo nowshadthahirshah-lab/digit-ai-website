@@ -81,7 +81,7 @@ export function LiveDiary() {
     <section id="diary" className="relative">
       <div className="mx-auto grid min-w-0 max-w-7xl items-center gap-10 px-5 py-20 sm:px-8 md:py-32 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <Eyebrow n="04">{diary.eyebrow}</Eyebrow>
+          <Eyebrow n="05">{diary.eyebrow}</Eyebrow>
           <h2 className="mt-4 max-w-[9ch] font-display text-[clamp(2.75rem,12vw,5.5rem)]">{diary.headline}</h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-muted">{diary.lede}</p>
         </Reveal>

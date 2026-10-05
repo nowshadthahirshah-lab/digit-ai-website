@@ -15,7 +15,7 @@ export function Pricing({ onBook }: { onBook: () => void }) {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-32">
         <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Eyebrow n="07">Pricing</Eyebrow>
+            <Eyebrow n="08">Pricing</Eyebrow>
             <h2 className="mt-4 max-w-[10ch] font-display text-[clamp(2.75rem,12vw,5.5rem)]">
               Priced around growth.
             </h2>
@@ -27,8 +27,10 @@ export function Pricing({ onBook }: { onBook: () => void }) {
         </Reveal>
 
         <div className="mt-12 grid gap-4 md:mx-auto md:max-w-xl lg:mt-16 lg:max-w-none lg:grid-cols-3 lg:items-stretch">
-          {plans.map((p, i) => (
-            <Reveal key={p.name} delay={i * 80} as="article" className="h-full">
+          {plans.map((p) => (
+            // Plain article, not <Reveal>: Reveal server-renders at opacity 0, which hid these cards
+            // (and their monthly prices) with JavaScript off or before the scroll trigger fired.
+            <article key={p.name} className="h-full">
               <TiltCard className="h-full rounded-xl">
                 <div
                   className={cn(
@@ -93,7 +95,7 @@ export function Pricing({ onBook }: { onBook: () => void }) {
                   </a>
                 </div>
               </TiltCard>
-            </Reveal>
+            </article>
           ))}
         </div>
         {/* Non-breaking hyphen keeps “7-day” together when the line wraps. */}

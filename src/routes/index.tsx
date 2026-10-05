@@ -14,14 +14,23 @@ import { Scenarios } from "@/components/sections/scenarios";
 import { Pricing } from "@/components/sections/pricing";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/cta";
-import { BookDialog } from "@/components/sections/book-dialog";
+import { BookDialog, type EnquiryIntent } from "@/components/sections/book-dialog";
+import { Websites } from "@/components/sections/websites";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
-  const [book, setBook] = useState(false);
-  const openBook = () => setBook(true);
+  const [book, setBook] = useState<EnquiryIntent | null>(null);
+  const [lastIntent, setLastIntent] = useState<EnquiryIntent>("audit");
+  const openBook = () => {
+    setLastIntent("audit");
+    setBook("audit");
+  };
+  const openWebsite = () => {
+    setLastIntent("website");
+    setBook("website");
+  };
 
   return (
     <div className="relative min-h-svh overflow-x-clip bg-bg text-fg">
@@ -37,6 +46,7 @@ function Home() {
         <Hero onBook={openBook} />
         <Capabilities />
         <Solutions />
+        <Websites onWebsite={openWebsite} />
         <Pipeline />
         <Industries />
         <LiveDiary />
@@ -48,7 +58,7 @@ function Home() {
       </main>
       <SiteFooter />
       <WhatsAppFloat />
-      <BookDialog open={book} onOpenChange={setBook} />
+      <BookDialog open={book !== null} intent={book ?? lastIntent} onOpenChange={(v) => !v && setBook(null)} />
     </div>
   );
 }

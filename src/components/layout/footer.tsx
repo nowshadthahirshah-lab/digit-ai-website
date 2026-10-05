@@ -16,7 +16,7 @@ export function SiteFooter() {
           <ul className="mt-2 grid grid-cols-2 gap-x-4 md:grid-cols-1">
             {nav.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="inline-flex min-h-11 min-w-11 items-center text-sm text-muted hover:text-fg">
+                <a href={`/${item.href}`} className="inline-flex min-h-11 min-w-11 items-center text-sm text-muted hover:text-fg">
                   {item.label}
                 </a>
               </li>
@@ -49,6 +49,12 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {site.legal}
           </p>
           <p>{site.tag}</p>
+          <p>
+            {site.legal} · {contact.location}
+          </p>
+          <a href="/privacy" className="inline-flex min-h-11 items-center hover:text-fg">
+            Privacy policy
+          </a>
         </div>
       </div>
     </footer>

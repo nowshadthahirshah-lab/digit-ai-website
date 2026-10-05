@@ -36,7 +36,7 @@ export function Results() {
       />
       <div className="mx-auto grid max-w-7xl items-start gap-12 px-5 py-20 sm:px-8 md:py-32 lg:grid-cols-[1fr_minmax(0,30rem)] lg:gap-20">
         <Reveal>
-          <Eyebrow n="05">Results</Eyebrow>
+          <Eyebrow n="06">Results</Eyebrow>
           <h2 className="mt-4 max-w-[11ch] font-display text-[clamp(2.75rem,12vw,5.5rem)]">{calculator.headline}</h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-muted">{calculator.lede}</p>
           <ul className="mt-8 grid max-w-md gap-3 text-sm text-muted">
