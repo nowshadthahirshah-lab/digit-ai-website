@@ -1,7 +1,5 @@
-import { WhatsAppIcon } from "@/components/brand/whatsapp-icon";
 import { Logo } from "@/components/brand/logo";
 import { contact, footer, nav, site } from "@/lib/copy";
-import { waLink, waLinkProps, waMessages } from "@/lib/whatsapp";
 
 export function SiteFooter() {
   return (
@@ -25,22 +23,12 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="eyebrow">Contact</p>
-          <p className="mt-3 text-sm text-fg">{contact.owner}</p>
+          <a href={`mailto:${contact.email}`} className="mt-2 flex min-h-11 items-center text-sm break-all text-muted hover:text-fg">
+            {contact.email}
+          </a>
           <a href={contact.phoneHref} className="flex min-h-11 items-center text-sm text-muted hover:text-fg">
             {contact.phone}
           </a>
-          <a
-            href={waLink(waMessages.general)}
-            {...waLinkProps}
-            className="flex min-h-11 items-center gap-2 text-sm text-muted hover:text-fg"
-          >
-            <WhatsAppIcon className="size-4 text-[#25D366]" />
-            WhatsApp <span className="whitespace-nowrap">{contact.whatsappDisplay}</span>
-          </a>
-          <a href={`mailto:${contact.email}`} className="flex min-h-11 items-center text-sm break-all text-muted hover:text-fg">
-            {contact.email}
-          </a>
-          <address className="mt-1 text-sm text-subtle not-italic">{contact.postalAddress}</address>
           <a href="/clinics" className="flex min-h-11 items-center text-sm text-muted hover:text-fg">
             For clinics
           </a>

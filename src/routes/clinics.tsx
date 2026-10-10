@@ -16,7 +16,7 @@ import { waLink, waLinkProps } from "@/lib/whatsapp";
 
 const AUDIT_LABEL = "Book a free Clinic Enquiry Audit";
 const WA_MESSAGE =
-  "Hi Shah, I run a clinic and I'd like a free Clinic Enquiry Audit — can you look at how we handle DMs and bookings?";
+  "Hi DIGIT AI — I run a clinic and I'd like a free Clinic Enquiry Audit — can you look at how we handle DMs and bookings?";
 
 export const Route = createFileRoute("/clinics")({
   head: () => ({

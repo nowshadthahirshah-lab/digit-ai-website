@@ -17,7 +17,7 @@ const INTENTS = {
   website: {
     eyebrow: "Websites · free concept",
     title: websites.cta,
-    description: "Send your details and I’ll design your new homepage before you commit to anything.",
+    description: "Send your details and we’ll design your new homepage before you commit to anything.",
     source: "Website: free concept homepage",
     message: websites.ctaMessage,
   },

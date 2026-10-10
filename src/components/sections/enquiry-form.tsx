@@ -138,12 +138,12 @@ export function EnquiryForm({
           {status.viaEmailApp ? (
             <>
               Thanks, {status.name}. Your email app should have opened with your enquiry to {contact.email} — press
-              send there and it reaches Shah. Nothing opened? WhatsApp or call {contact.phone}.
+              send there and it reaches us. Nothing opened? WhatsApp or call {contact.phone}.
             </>
           ) : (
             <>
-              Thanks, {status.name}. Your enquiry has reached Shah. I’ll reply the same or next working day. Need
-              me sooner? WhatsApp or call {contact.phone}.
+              Thanks, {status.name}. Your enquiry has reached us. We’ll reply the same or next working day. Need
+              us sooner? WhatsApp or call {contact.phone}.
             </>
           )}
         </p>
