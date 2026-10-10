@@ -29,6 +29,7 @@ export function SiteFooter() {
           <a href={contact.phoneHref} className="flex min-h-11 items-center text-sm text-muted hover:text-fg">
             {contact.phone}
           </a>
+          <address className="mt-1 text-sm text-muted not-italic">{contact.postalAddress}</address>
           <a href="/clinics" className="flex min-h-11 items-center text-sm text-muted hover:text-fg">
             For clinics
           </a>
