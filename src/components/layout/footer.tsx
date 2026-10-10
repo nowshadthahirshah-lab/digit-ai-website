@@ -40,7 +40,10 @@ export function SiteFooter() {
           <a href={`mailto:${contact.email}`} className="flex min-h-11 items-center text-sm break-all text-muted hover:text-fg">
             {contact.email}
           </a>
-          <p className="mt-1 text-sm text-subtle">{contact.location}</p>
+          <address className="mt-1 text-sm text-subtle not-italic">{contact.postalAddress}</address>
+          <a href="/clinics" className="flex min-h-11 items-center text-sm text-muted hover:text-fg">
+            For clinics
+          </a>
         </div>
       </div>
       <div className="border-t border-line">

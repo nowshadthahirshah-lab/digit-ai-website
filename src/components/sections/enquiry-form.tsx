@@ -12,7 +12,7 @@ const ENDPOINT = "https://api.web3forms.com/submit";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 type Errors = Partial<Record<"name" | "business" | "phone" | "email" | "consent", string>>;
-type Status = { state: "idle" } | { state: "sending" } | { state: "sent"; name: string } | { state: "error" };
+type Status = { state: "idle" } | { state: "sending" } | { state: "sent"; name: string; viaEmailApp?: boolean } | { state: "error" };
 
 function validate(v: Record<string, string>, consent: boolean): Errors {
   const errors: Errors = {};
@@ -83,8 +83,22 @@ export function EnquiryForm({
     if (Object.keys(found).length > 0) return;
 
     if (!ACCESS_KEY) {
-      console.error("VITE_WEB3FORMS_KEY is not set, so enquiries cannot be delivered.");
-      setStatus({ state: "error" });
+      // No form-service key yet: hand the enquiry to the visitor's email app, addressed and filled in,
+      // so nothing they typed is lost.
+      const body = [
+        `Name: ${values.name}`,
+        `Business: ${values.business}`,
+        `Phone: ${values.phone}`,
+        `Email: ${values.email}`,
+        "",
+        values.message || "(no message)",
+        "",
+        `Sent from: ${source}`,
+      ].join("\n");
+      window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(
+        `DIGIT AI enquiry: ${values.business}`,
+      )}&body=${encodeURIComponent(body)}`;
+      setStatus({ state: "sent", name: values.name, viaEmailApp: true });
       return;
     }
 
@@ -121,8 +135,17 @@ export function EnquiryForm({
     return (
       <div className="confirm-enter mt-7" role="status">
         <p className="text-base leading-relaxed text-fg">
-          Thanks, {status.name}. Your enquiry has reached Shah. I’ll reply the same or next working day. Need me
-          sooner? WhatsApp or call {contact.phone}.
+          {status.viaEmailApp ? (
+            <>
+              Thanks, {status.name}. Your email app should have opened with your enquiry to {contact.email} — press
+              send there and it reaches Shah. Nothing opened? WhatsApp or call {contact.phone}.
+            </>
+          ) : (
+            <>
+              Thanks, {status.name}. Your enquiry has reached Shah. I’ll reply the same or next working day. Need
+              me sooner? WhatsApp or call {contact.phone}.
+            </>
+          )}
         </p>
         <FallbackContact className="mt-5" />
         <Button className="mt-4 w-full" variant="ghost" onClick={onDone}>

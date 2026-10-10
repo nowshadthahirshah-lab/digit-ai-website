@@ -61,8 +61,16 @@ export function Pricing({ onBook }: { onBook: () => void }) {
                   </p>
 
                   <div className="relative mt-7 flex items-baseline gap-1.5">
-                    <span className="font-display text-6xl leading-none font-extrabold tracking-tight">{p.price}</span>
-                    <span className="text-sm text-muted">{p.cadence}</span>
+                    {p.price ? (
+                      <>
+                        <span className="font-display text-6xl leading-none font-extrabold tracking-tight">{p.price}</span>
+                        <span className="text-sm text-muted">{p.cadence}</span>
+                      </>
+                    ) : (
+                      <span className="font-display text-3xl leading-tight font-extrabold tracking-tight">
+                        Quoted after your free audit
+                      </span>
+                    )}
                   </div>
                   <p className="relative mt-2 text-xs text-muted">{p.setup}</p>
                   <p className="relative mt-1 font-mono text-[0.7rem] tracking-[0.1em] text-subtle uppercase">{p.fit}</p>

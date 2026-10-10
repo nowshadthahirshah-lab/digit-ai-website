@@ -1,11 +1,11 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarCheck } from "lucide-react";
 import { WhatsAppIcon } from "@/components/brand/whatsapp-icon";
 import { Button } from "@/components/ui/button";
 import { Galaxy } from "@/components/motion/galaxy";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Reveal } from "@/components/motion/reveal";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { bookLabel, contact, cta } from "@/lib/copy";
+import { bookingLink, bookLabel, contact, cta } from "@/lib/copy";
 import { waLink, waLinkProps, waMessages } from "@/lib/whatsapp";
 
 export function FinalCta({ onBook }: { onBook: () => void }) {
@@ -38,6 +38,17 @@ export function FinalCta({ onBook }: { onBook: () => void }) {
               </Button>
             </Magnetic>
           </div>
+          {bookingLink.url ? (
+            <a
+              href={bookingLink.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm text-muted underline-offset-4 hover:text-fg hover:underline"
+            >
+              <CalendarCheck className="size-4" />
+              {bookingLink.label}
+            </a>
+          ) : null}
         </Reveal>
       </div>
     </section>

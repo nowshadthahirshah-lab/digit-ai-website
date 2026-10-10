@@ -18,8 +18,9 @@ const sections: { title: string; body: React.ReactNode }[] = [
     title: "Who we are",
     body: (
       <>
-        {contact.legalName}, trading as DIGIT AI, Canning Town, London {contact.postalAddress}, is the data
-        controller for personal data collected through this website. Contact: {contact.email} · {contact.phone}.
+        {contact.legalName}, trading as DIGIT AI, {contact.postalAddress}, is the data controller for personal
+        data we collect. Contact: <a href={`mailto:${contact.email}`} className="underline">{contact.email}</a> ·{" "}
+        {contact.phone}.
       </>
     ),
   },
@@ -27,9 +28,11 @@ const sections: { title: string; body: React.ReactNode }[] = [
     title: "What we collect",
     body: (
       <>
-        When you use our enquiry form, we collect your name, business name, phone number, email address and
-        anything you write in your message. Our hosting provider may also log technical data such as your IP
-        address and browser type, for security purposes. [Analytics: none / name of tool].
+        We collect personal data when you contact us through our website enquiry form, by email, by phone, on
+        WhatsApp, or through Meta lead forms (Instagram and Facebook Instant Forms). This is usually your name,
+        business name, phone number, email address and anything you tell us in your message. Our hosting
+        provider may also log technical data such as your IP address and browser type, for security purposes.
+        Analytics: none — this website does not use analytics or tracking tools.
       </>
     ),
   },
@@ -55,8 +58,8 @@ const sections: { title: string; body: React.ReactNode }[] = [
     title: "How long we keep it",
     body: (
       <>
-        Enquiries that don’t become work are deleted after [12] months. Client records are kept for [6 years]
-        for accounting and legal purposes.
+        Enquiries that don’t become work are deleted after 12 months. Client records are kept for 6 years for
+        accounting and legal purposes.
       </>
     ),
   },
@@ -64,7 +67,8 @@ const sections: { title: string; body: React.ReactNode }[] = [
     title: "Who processes it for us",
     body: (
       <>
-        Vercel Inc. (website hosting); Web3Forms (form delivery); Google (Gmail email). Some of these providers
+        Vercel Inc. (website hosting); Web3Forms (form delivery); our email provider (for {contact.email});
+        Meta Platforms (Instagram and Facebook lead forms); WhatsApp (messages you send us). Some of these providers
         may process data outside the UK under appropriate safeguards, such as the UK International Data Transfer
         Addendum or adequacy regulations.
       </>
@@ -75,7 +79,8 @@ const sections: { title: string; body: React.ReactNode }[] = [
     body: (
       <>
         You can ask to access, correct or delete your data, restrict or object to how we use it, or receive a
-        copy of it (data portability). Email {contact.email}. We’ll reply within one month.
+        copy of it (data portability). Email{" "}
+        <a href={`mailto:${contact.email}`} className="underline">{contact.email}</a>. We’ll reply within one month.
       </>
     ),
   },
@@ -90,7 +95,7 @@ const sections: { title: string; body: React.ReactNode }[] = [
   },
   {
     title: "Cookies",
-    body: <>[this site uses only essential cookies / list any analytics cookies].</>,
+    body: <>This site uses only essential cookies needed for it to work. We do not use analytics or advertising cookies.</>,
   },
 ];
 
@@ -106,7 +111,7 @@ function Privacy() {
       </header>
       <main className="mx-auto max-w-3xl px-5 py-14 sm:px-8 md:py-20">
         <h1 className="font-display text-[clamp(2.75rem,12vw,5rem)]">Privacy Policy</h1>
-        <p className="mt-4 text-sm text-subtle">Last updated: [date]</p>
+        <p className="mt-4 text-sm text-subtle">Last updated: 10 October 2026</p>
         <div className="mt-10 flex flex-col gap-8">
           {sections.map((s) => (
             <section key={s.title}>

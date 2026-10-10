@@ -5,20 +5,21 @@ export const site = {
   name: "DIGIT",
   legal: "DIGIT AI",
   tag: "The next generation of business growth.",
-  // Absolute URL for social share cards (og:image must be absolute). Update if a custom domain is added.
-  url: "https://digit-ai.co.uk",
+  // Absolute URL for social share cards (og:image must be absolute).
+  // Switch to "https://digit-ai.co.uk" once the domain's DNS points at Vercel — until then it doesn't resolve.
+  url: "https://digit-ai-v2.vercel.app",
 };
 
 export const contact = {
   owner: "Shah",
-  location: "Canning Town, London",
+  location: "London",
   phone: "07405 286985",
   phoneHref: "tel:+447405286985",
   whatsapp: "447405286985",
   whatsappDisplay: "+44 7405 286985",
-  email: "nowshadthahirshah@gmail.com",
+  email: "info@digit-ai.co.uk",
   legalName: "THAHIRSHAH NOWSHAD",
-  postalAddress: "[full postal address]",
+  postalAddress: "236C Billet Road, London E17 5DY",
 };
 
 export const nav = [
@@ -26,12 +27,19 @@ export const nav = [
   { href: "#websites", label: "Websites" },
   { href: "#how-it-works", label: "How it works" },
   { href: "#industries", label: "Industries" },
-  { href: "#results", label: "Results" },
+  { href: "#results", label: "Examples" },
   { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },
 ] as const;
 
-export const bookLabel = "Book a Growth Audit";
+export const bookLabel = "Book a free Growth Audit";
+
+// BOOKING LINK PLACEHOLDER — paste your Calendly (or similar) URL here, e.g. "https://calendly.com/digit-ai/audit".
+// While it is empty, the "Pick a time" button stays hidden and visitors use the enquiry form, WhatsApp or phone.
+export const bookingLink = {
+  url: "",
+  label: "Pick a time in the calendar",
+};
 
 export const hero = {
   eyebrow: "AI growth systems for UK businesses",
@@ -395,12 +403,13 @@ export const scenarios = [
   },
 ] as const;
 
-// One place for the monthly prices. Growth and Scale stay as placeholders until the owner confirms them.
-export const monthlyPrices = {
+// One place for the monthly prices. null = not yet confirmed by the owner: the card shows
+// "Quoted after your free audit" instead of a number. Set a string like "£349" to publish a price.
+export const monthlyPrices: Record<"foundation" | "growth" | "scale", string | null> = {
   foundation: "£199",
-  growth: "£___",
-  scale: "£___",
-} as const;
+  growth: null,
+  scale: null,
+};
 
 export const plans = [
   {
