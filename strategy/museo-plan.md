@@ -12,7 +12,7 @@ Photos/videos → a little 3D gallery you can walk through → share as link or 
 | Audience | All occasions (couples, birthdays, Mother's Day, weddings, memorials) |
 | Pricing | Free with watermark; paid upgrade (~£4.99): no watermark, voice note, 50 photos, online forever |
 | v1 extras | Room themes + music; voice note in paid; unlock date later |
-| Colours | From @varrismansuri palette: Neon Lime #C1FB54 → Golden #C99432 → Flame #DB5427 (brighten to ~#FF5A1F), Gallery White #F6F6F6, Ink Black #111111 |
+| Colours | Middle of @varrismansuri palette, 3 colours: Neon Lime #C1FB54 → Acid Yellow #C3D744 → Golden #C99432; plus Gallery White #F6F6F6 and Ink Black #111111 |
 | Fonts | Bold grotesk caps headlines (Inter Display style) + clean body |
 
 ## Open questions
