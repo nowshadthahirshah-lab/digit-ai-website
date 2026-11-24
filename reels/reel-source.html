@@ -4,13 +4,13 @@ body{width:1080px;height:1920px;background:#141414;font-family:Inter;color:#fff;
 #glow{position:absolute;left:50%;top:1250px;width:1200px;height:1100px;margin-left:-600px;margin-top:-550px;background:radial-gradient(closest-side,rgba(198,244,50,.18),transparent)}
 #tag{position:absolute;top:250px;left:80px;font-weight:800;font-size:30px;letter-spacing:.18em;display:flex;align-items:center;gap:12px}#tag i{width:15px;height:15px;border-radius:4px;background:#c6f432;display:block}
 #bars{position:absolute;top:262px;left:400px;right:250px;display:flex;gap:8px}#bars div{flex:1;height:6px;border-radius:3px;background:#333;overflow:hidden}#bars b{display:block;height:100%;background:#c6f432;width:0}
-#hd{position:absolute;top:320px;left:80px;width:860px}h1{font-size:78px;line-height:1.04;font-weight:800;letter-spacing:-.03em}
+#hd{position:absolute;top:320px;left:80px;width:770px}h1{font-size:78px;line-height:1.04;font-weight:800;letter-spacing:-.03em}
 h1 span{display:inline-block;margin-right:.22em}h1 .l{color:#c6f432}
 #sub{margin-top:22px;font-size:36px;color:#b5b5b5;font-weight:500}#sub b{color:#c6f432}
-#phone{position:absolute;left:260px;top:660px;width:560px;height:1219px;border-radius:78px;background:#2a2a2a;padding:14px;box-shadow:0 0 0 2px #3a3a3a,0 50px 100px rgba(0,0,0,.6);transform-origin:50% 0}
-#scr{position:relative;width:532px;height:1191px;border-radius:64px;overflow:hidden;background:#f1f1ec}
+#phone{position:absolute;left:256px;top:660px;width:568px;height:1299px;border-radius:56px;background:#262626;padding:54px 18px;box-shadow:0 0 0 2px #3a3a3a,0 50px 100px rgba(0,0,0,.6);transform-origin:50% 0}
+#scr{position:relative;width:532px;height:1191px;border-radius:14px;overflow:hidden;background:#f1f1ec}
 #isl{position:absolute;top:28px;left:50%;width:130px;height:36px;margin-left:-65px;border-radius:20px;background:#000;z-index:9}
-.lay{position:absolute;left:0;top:40px;width:532px;height:1151px;overflow:hidden}
+.lay{position:absolute;left:0;top:0;width:532px;height:1191px;overflow:hidden}
 .lay img{width:532px;display:block;position:absolute;left:0;top:0}
 .lay img.nav{top:auto;bottom:0}
 #rip{position:absolute;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;background:rgba(198,244,50,.55);border:4px solid #c6f432;z-index:8;opacity:0}
@@ -22,7 +22,7 @@ h1 span{display:inline-block;margin-right:.22em}h1 .l{color:#c6f432}
 <div id="tag"><i></i>WORKBAY</div><div id="bars"></div>
 <div id="hd"><h1 id="h"></h1><p id="sub"></p></div>
 <div id="mon"><div class="bz"><img src="s_desk.png"></div><div class="neck"></div><div class="ft"></div></div>
-<div id="phone"><div id="isl"></div><div id="scr">
+<div id="phone"><div id="scr">
  <div class="lay" id="L_home"><img src="v_home_full.png"><img class="nav" src="v_nav.png"></div>
  <div class="lay" id="L_jobs"><img src="v_jobs_full.png"><img class="nav" src="v_nav.png"></div>
  <div class="lay" id="L_job"><img src="v_job.png"></div>
@@ -34,16 +34,15 @@ h1 span{display:inline-block;margin-right:.22em}h1 .l{color:#c6f432}
 <div id="pill"></div>
 <script>
 const K=532/390;
-const S=[ // start,end,headline(words, * = lime), sub
- [0,3.4,'Your whole garage. *One *app.','Jobs, invoices, MOTs and customers.'],
- [3.4,7.6,'Every *job in one list','Booked, in progress, done, paid.'],
- [7.6,11.8,'*Invoices in 30 seconds','Share as a PDF or send on WhatsApp.'],
- [11.8,15.4,'MOT *reminders sent for you','The message is written. One tap to send.'],
- [15.4,18.6,'All your *customers, sorted','Every name, number and reg in one place.'],
- [18.6,22.4,'Works on your *phone or garage computer','Same garage, any screen. Nothing to install.'],
- [22.4,27,'*7 *days *free. No card.','Link in bio <b>@work_bayapp</b>'],
+const S=[
+ [0,2.6,'Your whole garage. *One *app.','Jobs, invoices, MOTs and customers.'],
+ [2.6,5.1,'Every *job in one list','Booked, in progress, done, paid.'],
+ [5.1,7.6,'*Invoices in 30 seconds','Share as a PDF or send on WhatsApp.'],
+ [7.6,10.0,'MOT *reminders sent for you','The message is written. One tap to send.'],
+ [10.0,12.4,'Works on your *phone or garage computer','Same garage, any screen.'],
+ [12.4,15.2,'*7 *days *free. No card.','Link in bio <b>@work_bayapp</b>'],
 ];
-const T=27;
+const T=15.2;
 const bars=document.getElementById('bars');S.forEach(()=>bars.insertAdjacentHTML('beforeend','<div><b></b></div>'));
 const cl=x=>Math.max(0,Math.min(1,x)),oc=x=>1-Math.pow(1-cl(x),3),io=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2},
 ob=x=>{x=cl(x);const c1=1.5,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
@@ -51,33 +50,27 @@ const lerp=(a,b,x)=>a+(b-a)*x;
 let cur=-1;const $=id=>document.getElementById(id);
 function setScene(i){if(i===cur)return;cur=i;const w=S[i][2].split(' ');
  $('h').innerHTML=w.map(x=>x[0]=='*'?`<span class="l">${x.slice(1)}</span>`:`<span>${x}</span>`).join('');$('sub').innerHTML=S[i][3];}
-function L(id,{o=1,y=0,x=0,s=0}){const e=$('L_'+id);e.style.opacity=o;e.style.transform=`translate(${x}px,${y}px)`;e.style.zIndex=o>0?2:0;if(s!==undefined)e.firstElementChild.style.top=(-s*K)+'px';}
-function ripple(t,t0,cx,cy){const r=$('rip');const p=(t-t0)/0.5;if(p<0||p>1){r.style.opacity=0;return}
- r.style.left=cx*K+'px';r.style.top=(40+cy*K)+'px';r.style.opacity=(1-p)*0.9;r.style.transform=`scale(${0.3+p*0.9})`;}
+function L(id,{o=1,y=0,x=0,s=0}){const e=$('L_'+id);e.style.opacity=o;e.style.transform=`translate(${x}px,${y}px)`;e.style.zIndex=o>0?2:0;e.firstElementChild.style.top=(-s*K)+'px';}
+function ripple(t,t0,cx,cy){const r=$('rip');const p=(t-t0)/0.4;if(p<0||p>1){r.style.opacity=0;return}
+ r.style.left=cx*K+'px';r.style.top=(cy*K)+'px';r.style.opacity=(1-p)*0.9;r.style.transform=`scale(${0.3+p*0.9})`;}
+function pill(lt,t0,txt,out){const pp=ob((lt-t0)/0.4);$('pill').style.opacity=cl((lt-t0)/0.15)*(1-out);$('pill').textContent=txt;$('pill').style.transform=`scale(${pp})`;}
 function render(t){
  let i=S.findIndex(s=>t>=s[0]&&t<s[1]);if(i<0)i=S.length-1;setScene(i);const [a,b]=S[i];const lt=t-a;
- // bars
  [...bars.children].forEach((d,j)=>d.firstChild.style.width=(j<i?100:j>i?0:cl((t-a)/(b-a))*100)+'%');
- // headline words
- const out=i<S.length-1?cl((t-(b-0.25))/0.25):0;
- [...$('h').children].forEach((sp,j)=>{const p=oc((lt-0.05-j*0.07)/0.4);sp.style.opacity=p*(1-out);sp.style.transform=`translateY(${(1-p)*50-out*30}px)`;});
- const sp=oc((lt-0.35)/0.4);$('sub').style.opacity=sp*(1-out);$('sub').style.transform=`translateY(${(1-sp)*24}px)`;
+ const out=i<S.length-1?cl((t-(b-0.2))/0.2):0;
+ [...$('h').children].forEach((sp,j)=>{const p=oc((lt-0.03-j*0.05)/0.32);sp.style.opacity=p*(1-out);sp.style.transform=`translateY(${(1-p)*44-out*26}px)`;});
+ const sp=oc((lt-0.25)/0.35);$('sub').style.opacity=sp*(1-out);$('sub').style.transform=`translateY(${(1-sp)*20}px)`;
  ['home','jobs','job','inv','mot','cust'].forEach(n=>L(n,{o:0}));
- let ph={x:0,y:0,s:1};$('mon').style.opacity=0;$('pill').style.opacity=0;ripple(t,-9,0,0);
- if(i==0){const p=ob(t/0.8);ph.y=(1-p)*700;L('home',{s:io((t-1.4)/2)*380});}
- if(i==1){const sx=1-oc(lt/0.45);L('home',{s:380,x:-532*(1-sx)});L('jobs',{x:532*sx,s:io((lt-0.5)/1.8)*520-io((lt-2.4)/0.5)*520});
-   ripple(t,a+3.0,160,311);if(lt>3.3){const q=oc((lt-3.3)/0.45);L('job',{y:(1-q)*1151});}}
- if(i==2){L('job',{});const q=oc((lt-0.2)/0.5);L('inv',{y:(1-q)*1151});ripple(t,a+2.4,195,805);
-   const pp=ob((lt-1.0)/0.5);$('pill').style.opacity=cl((lt-1.0)/0.2)*(1-out);$('pill').textContent='£640.00 · INV-1003';$('pill').style.transform=`scale(${pp})`;}
- if(i==3){const q=oc(lt/0.5);L('inv',{x:-532*q});L('mot',{x:532*(1-q)});ripple(t,a+1.8,365,200);
-   const pp=ob((lt-2.0)/0.5);$('pill').style.opacity=cl((lt-2.0)/0.2)*(1-out);$('pill').textContent='Reminder written for you';$('pill').style.transform=`scale(${pp})`;}
- if(i==4){const q=oc(lt/0.5);L('mot',{x:-532*q});L('cust',{x:532*(1-q)});ripple(t,a+1.6,195,145);}
- if(i==5){L('home',{s:0});const q=io(lt/0.7);ph={x:lerp(0,330,q),y:lerp(0,380,q),s:lerp(1,0.55,q)};
-   const m=oc((lt-0.3)/0.6);$('mon').style.opacity=m;$('mon').style.transform=`translateX(${(1-m)*-200}px)`;}
- if(i==6){L('home',{s:0});const q=io(lt/0.7);ph={x:lerp(330,0,q),y:lerp(380,60,q),s:lerp(0.55,1,q)};
-   const m=1-oc(lt/0.4);$('mon').style.opacity=m;
-   const pp=ob((lt-1.0)/0.5);$('pill').style.opacity=cl((lt-1.0)/0.2);$('pill').textContent='Start free trial';$('pill').style.transform=`scale(${pp})`;$('pill').style.top='1380px';}
- else $('pill').style.top='1340px';
+ let ph={x:0,y:0,s:1};$('mon').style.opacity=0;$('pill').style.opacity=0;ripple(t,-9,0,0);$('pill').style.top='1340px';
+ if(i==0){const p=ob(t/0.7);ph.y=(1-p)*700;L('home',{s:io((t-1.3)/1.2)*220});}
+ if(i==1){const sx=1-oc(lt/0.35);L('home',{s:220,x:-532*(1-sx)});L('jobs',{x:532*sx,s:io((lt-0.35)/0.9)*380-io((lt-1.3)/0.35)*380});
+   ripple(t,a+1.7,160,311);if(lt>1.9){const q=oc((lt-1.9)/0.4);L('job',{y:(1-q)*1191});}}
+ if(i==2){L('job',{});const q=oc((lt)/0.4);L('inv',{y:(1-q)*1191});ripple(t,a+1.5,195,805);pill(lt,0.6,'£640.00 · INV-1003',out);}
+ if(i==3){const q=oc(lt/0.4);L('inv',{x:-532*q});L('mot',{x:532*(1-q)});ripple(t,a+1.0,365,200);pill(lt,1.2,'Reminder written for you',out);}
+ if(i==4){L('home',{s:0});const q=io(lt/0.6);ph={x:lerp(0,330,q),y:lerp(0,360,q),s:lerp(1,0.55,q)};
+   const m=oc((lt-0.25)/0.5);$('mon').style.opacity=m;$('mon').style.transform=`translateX(${(1-m)*-200}px)`;}
+ if(i==5){L('home',{s:0});const q=io(lt/0.6);ph={x:lerp(330,0,q),y:lerp(360,60,q),s:lerp(0.55,1,q)};
+   $('mon').style.opacity=1-oc(lt/0.35);$('pill').style.top='1330px';pill(lt,0.7,'Start free trial',0);}
  $('phone').style.transform=`translate(${ph.x}px,${ph.y}px) scale(${ph.s})`;
  $('glow').style.transform=`scale(${1+0.05*Math.sin(t*1.3)})`;
 }
