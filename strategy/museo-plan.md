@@ -12,12 +12,12 @@ Photos/videos → a little 3D gallery you can walk through → share as link or 
 | Audience | All occasions (couples, birthdays, Mother's Day, weddings, memorials) |
 | Pricing | Free with watermark; paid upgrade (~£4.99): no watermark, voice note, 50 photos, online forever |
 | v1 extras | Room themes + music; voice note in paid; unlock date later |
-| Colours | Middle of @varrismansuri palette, 3 colours: Neon Lime #C1FB54 → Acid Yellow #C3D744 → Golden #C99432; plus Gallery White #F6F6F6 and Ink Black #111111 |
-| Fonts | Bold grotesk caps headlines (Inter Display style) + clean body |
+| Colours | (from @uxdam_ 'HUES' palette) Cream #FFF9EF bg · Rose #CD6892 main · Blush #FFD9EE soft · Burgundy #70172D deep/logo · Ink #111111 text · Golden #C99432 accent (frames, heart QR) |
+| Gradients | Main: #FFD9EE→#CD6892→#70172D · Soft: #FFF9EF→#FFD9EE · Warm: #CD6892→#C99432 · Deep: #70172D→#CD6892 |
+| Fonts | TBC – user sending typography links |
 
 ## Open questions
 - Logo: frame + heart, or frame + arch doorway?
-- Colour clash with Workbay lime (#C6F432)? Lead with gradient/orange?
 - Next: website pages + user flow.
 
 ## Other names checked (available on 24/11/2026)
