@@ -67,9 +67,15 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
 @keyframes capIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .envwrap.open .envcap{opacity:0!important;transition:opacity .4s}
 .half{font-family:var(--hand);font-size:calc(var(--hand-size) * .7);color:var(--accent);text-align:center;margin-top:8px;position:relative;opacity:0;animation:capIn .8s ease .7s forwards}
-.ideas{display:flex;flex-wrap:wrap;gap:6px}
+.ideas{display:flex;flex-wrap:wrap;gap:6px;min-width:0;max-width:100%}
+.sheet .body>*{min-width:0}
+.sheet .body{grid-template-columns:minmax(0,1fr)}
 .ideas b{width:100%;font:600 12px var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:#5E6E7E}
-.ideas button{border:1px solid #e1d8c8;background:#FFFAF0;border-radius:999px;padding:7px 12px;font:14px "Caveat",cursive;font-size:17px;cursor:pointer;color:#1D2A38}
+.ideas .idea{border:1px solid #e1d8c8;background:#FFFAF0;border-radius:999px;padding:7px 12px;font:17px "Caveat",cursive;cursor:pointer;color:#1D2A38}
+.ideas .occ{width:100%;display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.ideas .occ::-webkit-scrollbar{display:none}
+.ideas .occb{flex:0 0 auto;border:1px solid #e1d8c8;background:#fff;border-radius:999px;padding:6px 11px;font:500 13px var(--font-ui);cursor:pointer;color:#1D2A38}
+.ideas .occb[aria-pressed="true"]{background:#1D2A38;color:#fff;border-color:#1D2A38}
 @keyframes breathe{50%{opacity:.45;transform:translateY(3px)}}
 .stamp,.postmark,.tape,.sticker{display:none}
 #app[data-theme="vintage"] .stamp{display:block;position:absolute;right:5%;top:8%;width:52px;height:64px;background:#F3E6CC;z-index:5;box-shadow:0 1px 2px rgba(0,0,0,.2);overflow:hidden}
@@ -418,9 +424,20 @@ $('#preview').addEventListener('click',()=>{
 
 // ---------- caption ideas ----------
 let lastCap=null;
-const IDEAS=['The day everything started','I still laugh about this','My favourite version of you','We didn\'t know it then, but…','Best. Day. Ever.','Home is wherever you are','I\'d do this again tomorrow','Look how young we were!'];
-$('#ideas').innerHTML='<b>Caption ideas, tap to use</b>'+IDEAS.map(t=>`<button type="button">${esc(t)}</button>`).join('');
-$('#ideas').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b||!draft||!draft.pages.length)return;
+const IDEAS={
+  'Love':['The day everything started','My favourite version of you','We didn\'t know it then, but…','Home is wherever you are','I\'d do this again tomorrow','Still my favourite person','You, me and this view','The moment I knew'],
+  'Birthday':['Another year of you!','Best. Day. Ever.','Make a wish ✨','Cake first, questions later','Older, wiser, still trouble','Here\'s to the next adventure','Look how young we were!','Party mode: on'],
+  'Mum & Dad':['Thank you for everything','You taught me this','My first hero','Still holding my hand','Sunday mornings with you','The best advice you ever gave me','Home always smells like you','I got it from you'],
+  'Friends':['I still laugh about this','Partners in crime','Remember this?!','No one else gets it','Best. Day. Ever.','Our place','Tears from laughing','Same time next year?'],
+  'Wedding':['The day we said yes','Our first dance','Forever starts here','Mr & Mrs','Surrounded by love','Just married!','The best day of our lives','Happily ever after'],
+  'New baby':['Hello, little one','Tiny hands, big love','Your very first day','Welcome to the world','Sleepy Sundays','Our new favourite person','Look who\'s here!','Love at first sight'],
+  'Graduation':['You did it!','All those late nights','Cap, gown and happy tears','So proud of you','Onwards and upwards','The future is yours','First day vs last day','Class of 2026'],
+  'Remembering':['Forever in our hearts','The way you smiled','We still talk about this day','Always with us','Your laugh, I can still hear it','Thank you for the memories','Missing you, always','Love never ends'],
+};
+let ideaSet='Love';
+function renderIdeas(){ $('#ideas').innerHTML='<b>Caption ideas, tap to use</b><span class="occ">'+Object.keys(IDEAS).map(k=>`<button type="button" class="occb" data-occ="${k}" aria-pressed="${k===ideaSet}">${k}</button>`).join('')+'</span>'+IDEAS[ideaSet].map(t=>`<button type="button" class="idea">${esc(t)}</button>`).join(''); }
+renderIdeas();
+$('#ideas').addEventListener('click',e=>{const o=e.target.closest('.occb'); if(o){ideaSet=o.dataset.occ;renderIdeas();return;} const b=e.target.closest('.idea'); if(!b||!draft||!draft.pages.length)return;
   let i=lastCap; if(i===null||i>=draft.pages.length){i=draft.pages.findIndex(p=>!p.cap); if(i<0)i=0;}
   draft.pages[i].cap=b.textContent; $('#cap'+i).value=b.textContent; lastCap=Math.min(i+1,draft.pages.length-1); toast('Caption added to photo '+(i+1));});
 
