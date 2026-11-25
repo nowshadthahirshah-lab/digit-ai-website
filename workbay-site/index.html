@@ -225,6 +225,8 @@ section{position:relative}
 .ld-total{display:flex;justify-content:space-between;font-weight:800;font-size:20px;padding-top:10px;border-top:2px solid #141414;margin-top:4px}
 .ph-demo{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .ph-demo i{aspect-ratio:1;border-radius:14px;display:block;position:relative;overflow:hidden}
+.ph-demo img,.m-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.m-ph i{position:relative;overflow:hidden}
 .ph-demo i::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:shine 5s infinite}
 .ph-demo i:nth-child(2)::after{animation-delay:.4s}.ph-demo i:nth-child(3)::after{animation-delay:.8s}
 .stock-demo{display:flex;align-items:center;justify-content:space-between;background:#f6f6f2;border-radius:18px;padding:16px}
@@ -566,7 +568,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom));border-top:1px so
       </article>
       <article class="tile t2 reveal d2">
         <h3>Photos on every job.</h3><p>Before and after, worn parts, damage. Proof that protects you and sells the next job.</p>
-        <div class="art ph-demo"><i style="background:linear-gradient(140deg,#2b3a55,#5b6f93)"></i><i style="background:linear-gradient(140deg,#5a4630,#b08850)"></i><i style="background:linear-gradient(140deg,#3c3c3c,#8d8d8d)"></i><i style="background:linear-gradient(140deg,#7a2e17,#e07a45)"></i><i style="background:linear-gradient(140deg,#2c4a2c,#7fae5a)"></i><i style="background:linear-gradient(140deg,#4a4a5e,#9a9ab5)"></i></div>
+        <div class="art ph-demo"><i><img src="media/job-tread.webp" alt="Worn tyre tread" loading="lazy" width="480" height="480"></i><i><img src="media/job-gauge.webp" alt="Measuring tyre tread depth" loading="lazy" width="480" height="480"></i><i><img src="media/job-brake.webp" alt="Mechanic checking a brake disc" loading="lazy" width="480" height="480"></i><i><img src="media/job-bay.webp" alt="Engine bay with the bonnet open" loading="lazy" width="480" height="480"></i><i><img src="media/job-lift.webp" alt="Car up on a ramp in the workshop" loading="lazy" width="480" height="480"></i><i><img src="media/job-under.webp" alt="Mechanic working under a car on a lift" loading="lazy" width="480" height="480"></i></div>
       </article>
       <article class="tile t3 reveal">
         <h3>Parts come off the shelf by themselves.</h3><p>Add a part from stock to a job and your count goes down. Running low? Workbay tells you.</p>
@@ -633,7 +635,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom));border-top:1px so
                 <div class="m-sec">Items</div>
                 <div class="m-card" style="padding:4px 10px"><div class="m-row"><div class="g"><div class="t"><span class="m-tag" style="background:#dbeafe;color:#0a6be0">LABOUR</span>Front brake pads</div><div class="s">1.5 hrs × £60.00</div></div><b>£90.00</b></div><div class="m-row"><div class="g"><div class="t"><span class="m-tag" style="background:#ffe8cc;color:#c26a00">PART</span>Brake discs</div><div class="s">1 × £89.99</div></div><b>£89.99</b></div></div>
                 <div class="m-sec">Photos · 3</div>
-                <div class="m-ph"><i style="background:linear-gradient(140deg,#2b3a55,#5b6f93)"></i><i style="background:linear-gradient(140deg,#7a2e17,#e07a45)"></i><i style="background:linear-gradient(140deg,#3c3c3c,#8d8d8d)"></i></div>
+                <div class="m-ph"><i><img src="media/job-tread.webp" alt="" loading="lazy"></i><i><img src="media/job-brake.webp" alt="" loading="lazy"></i><i><img src="media/job-bay.webp" alt="" loading="lazy"></i></div>
               </div>
               <div class="scr" data-story="2">
                 <div class="m-title" style="font-size:17px">Invoice</div>

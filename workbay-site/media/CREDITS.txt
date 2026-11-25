@@ -1,0 +1,11 @@
+Workshop photos (media/job-*.webp) are from Pexels and used under the Pexels licence
+(free for commercial use, no attribution required): https://www.pexels.com/license/
+
+job-tread.webp  https://www.pexels.com/photo/car-tire-closeup-photo-116676/
+job-gauge.webp  https://www.pexels.com/photo/person-measuring-tire-tread-depth-with-gauge-34357282/
+job-brake.webp  https://www.pexels.com/photo/a-close-up-shot-of-a-vehicle-disc-brake-6870299/
+job-bay.webp    https://www.pexels.com/photo/open-hood-of-a-car-8478228/
+job-lift.webp   https://www.pexels.com/photo/mechanic-working-under-car-in-repair-shop-32152037/
+job-under.webp  https://www.pexels.com/photo/mechanic-standing-under-a-car-on-a-car-lift-8986119/
+
+All other screenshots and videos in media/ are of the Workbay app with made-up demo data.
