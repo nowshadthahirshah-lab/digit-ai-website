@@ -106,3 +106,24 @@ A/B test one thing at a time: paywall position, £5.99 vs £6.99, teaser photos 
 | Sing / hum | Record yourself singing; option to add a soft backing tune | Paid |
 | Sound per room | Each room/wing can have its own music | Group / Living museum |
 Rules: no copyrighted songs hosted unless user confirms rights; takedown process; library tracks must be licensed for commercial use.
+
+## DIRECTION CHANGE (25/11/2026): "The Letter"
+Dropped 3D museum/rooms. Product = an envelope that opens into a photo-story letter. Simple, calm, personal, phone-first, daylight colours (cream paper + coastal blue). Tagline TBC ("Open your memories." / "A letter full of us."). Name Museo kept for now.
+
+### Receiver (what they see)
+1. Envelope screen: cream envelope, "For Sarah", wax-seal heart, "Tap to open".
+2. Opening: flap lifts, paper slides out, soft paper sound. Music starts (sender's choice).
+3. First page: short handwritten-style note ("I made this for you. Turn the page.") + sender's name.
+4. Memory pages: one photo per page, big; caption + date in small type; voice note button (auto-plays if allowed). Swipe/tap to turn.
+5. Group letters: each page shows who added it ("from Mum").
+6. Last page: final message, signature; buttons "Reply with a memory" and "Make one back".
+
+### Sender (how they make it)
+1. Who is it for? (name) + occasion.
+2. Add photos (up to 15 free / 50 paid), reorder by drag.
+3. Write a caption per photo (optional; suggestions offered).
+4. Record voice per photo or one message (paid).
+5. Pick music (library / "our song" link / upload own with rights tick).
+6. Write the opening note + final message; pick paper & ink colour.
+7. Preview exactly as receiver sees it.
+8. Send → paywall (free teaser vs £6.99 full vs £14.99 group) → link + heart QR + send-at-midnight.
