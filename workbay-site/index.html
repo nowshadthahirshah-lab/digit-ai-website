@@ -452,7 +452,19 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom));border-top:1px so
 .stick b{display:block;font-size:15px}.stick span{font-size:13px;color:#a1a1a6}
 .stick a{background:var(--lime);color:#141414;font-weight:600;border-radius:999px;padding:11px 18px;white-space:nowrap}
 @media(min-width:821px){.stick{display:none}}
-@media (prefers-reduced-motion:reduce){.sphone img,.stick{transition:none}}
+.dboard{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:center}
+.dlist{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:10px;counter-reset:d}
+.dlist button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:34px 1fr;gap:4px 14px;width:100%;padding:16px 18px;border-radius:20px;border:1px solid var(--line);background:#fff;cursor:pointer;transition:background .4s,border-color .4s,transform .4s;counter-increment:d}
+.dlist button::before{content:counter(d);grid-row:span 2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:15px;background:#f1f1ec;color:var(--ink);transition:background .4s}
+.dcopy h2{font-size:clamp(34px,5vw,58px);font-weight:800;margin:6px 0 14px}.dlist b{font-size:18px;color:var(--ink)}.dlist span{color:var(--muted);font-size:15.5px;line-height:1.45}
+.dlist button[aria-pressed="true"]{border-color:var(--ink);transform:translateX(4px)}
+.dlist button[aria-pressed="true"]::before{background:#c6f432}
+.dlist button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.dphone{position:relative;width:min(320px,78vw);margin:0 auto;aspect-ratio:390/844;border-radius:46px;background:#141414;padding:12px;box-shadow:0 40px 80px -30px rgba(0,0,0,.45)}
+.dphone .dscr{position:absolute;inset:12px;border-radius:36px;overflow:hidden;background:#f5f5f0}
+.dphone img{display:block;width:100%;height:auto;transition:transform 1.6s cubic-bezier(.65,0,.35,1)}
+@media (max-width:900px){.dboard{grid-template-columns:1fr;gap:34px}.dboard .dphone{order:-1}.dlist button[aria-pressed="true"]{transform:none}}
+@media (prefers-reduced-motion:reduce){.sphone img,.stick,.dphone img{transition:none}}
 </style>
 </head>
 <body>
@@ -568,12 +580,28 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom));border-top:1px so
   </section>
 
   
+  <section class="sect wrap" id="dashboard">
+    <div class="dboard">
+      <div class="dcopy">
+        <p class="eyebrow reveal">Your dashboard</p>
+        <h2 class="reveal d1">Open the app. See your whole garage.</h2>
+        <p class="lead reveal d2">The first screen you see every morning. Money, jobs and what needs doing next, all on one page.</p>
+        <ol class="dlist reveal d2" aria-label="What’s on the dashboard">
+          <li><button type="button" data-y="0" aria-pressed="true"><b>Who to chase today</b><span>What you’re owed, what’s overdue, and which MOTs and services are due. One tap writes the message.</span></button></li>
+          <li><button type="button" data-y="28" aria-pressed="false"><b>This month</b><span>Revenue, jobs done and money collected close like rings against your goals. Prefer numbers? Switch to a grid or a graph.</span></button></li>
+          <li><button type="button" data-y="51.5" aria-pressed="false"><b>To do</b><span>Cars to start, parts to order, invoices to send and quotes waiting for a yes.</span></button></li>
+          <li><button type="button" data-y="62.3" aria-pressed="false"><b>Today</b><span>Every job booked in today, with its price and where it’s up to.</span></button></li>
+        </ol>
+      </div>
+      <div class="dphone reveal"><div class="dscr"><img src="media/screen-dashboard.webp" alt="The Workbay dashboard: who to chase today, this month’s takings as rings, a to-do list and today’s jobs" loading="lazy" id="dashImg"></div></div>
+    </div>
+  </section>
   <section class="sect wrap" id="screens">
     <div class="sect-h"><p class="eyebrow reveal">Take a look around</p><h2 class="reveal d1">The screens you'll use every day.</h2><p class="lead reveal d2">Real Workbay screens, with a made-up garage and made-up customers.</p></div>
     <div class="screens">
       <div class="scopy">
-        <div class="stabs" role="tablist" aria-label="Workbay screens"><button type="button" role="tab" id="st-home" aria-selected="true" data-s="home">Home</button><button type="button" role="tab" id="st-jobs" aria-selected="false" data-s="jobs">Jobs</button><button type="button" role="tab" id="st-calendar" aria-selected="false" data-s="calendar">Calendar</button><button type="button" role="tab" id="st-jobcard" aria-selected="false" data-s="jobcard">Job card</button><button type="button" role="tab" id="st-invoice" aria-selected="false" data-s="invoice">Invoice</button><button type="button" role="tab" id="st-reminders" aria-selected="false" data-s="reminders">MOT reminders</button><button type="button" role="tab" id="st-customers" aria-selected="false" data-s="customers">Customers</button></div>
-        <h3 id="sTitle">Your day at a glance.</h3><p id="sText">Who owes you, who to chase, MOTs and services due, and the month’s takings closing like rings.</p>
+        <div class="stabs" role="tablist" aria-label="Workbay screens"><button type="button" role="tab" id="st-home" aria-selected="true" data-s="home">Dashboard</button><button type="button" role="tab" id="st-jobs" aria-selected="false" data-s="jobs">Jobs</button><button type="button" role="tab" id="st-calendar" aria-selected="false" data-s="calendar">Calendar</button><button type="button" role="tab" id="st-jobcard" aria-selected="false" data-s="jobcard">Job card</button><button type="button" role="tab" id="st-invoice" aria-selected="false" data-s="invoice">Invoice</button><button type="button" role="tab" id="st-reminders" aria-selected="false" data-s="reminders">MOT reminders</button><button type="button" role="tab" id="st-customers" aria-selected="false" data-s="customers">Customers</button></div>
+        <h3 id="sTitle">Your day at a glance.</h3><p id="sText">Who to chase, MOTs and services due, the month’s takings closing like rings, and your to-do list.</p>
         <p class="cap">Tap a screen name to see it.</p>
       </div>
       <div class="sphone"><div class="sscr"><img src="media/screen-home.webp" alt="Workbay Home screen" class="on" data-s="home" loading="eager"><img src="media/screen-jobs.webp" alt="Workbay Jobs screen" class="" data-s="jobs" loading="lazy"><img src="media/screen-calendar.webp" alt="Workbay Calendar screen" class="" data-s="calendar" loading="lazy"><img src="media/screen-jobcard.webp" alt="Workbay Job card screen" class="" data-s="jobcard" loading="lazy"><img src="media/screen-invoice.webp" alt="Workbay Invoice screen" class="" data-s="invoice" loading="lazy"><img src="media/screen-reminders.webp" alt="Workbay MOT reminders screen" class="" data-s="reminders" loading="lazy"><img src="media/screen-customers.webp" alt="Workbay Customers screen" class="" data-s="customers" loading="lazy"></div></div>
@@ -894,8 +922,13 @@ show(location.hash.slice(1)||'home',true);
 <div class="stick" id="stick" aria-hidden="true"><div><b>7 days free</b><span>Then £29 a month. No contract.</span></div><a href="#" data-app="trial">Try it free</a></div>
 <script>
 (function(){
-  var tabs=document.querySelectorAll('.stabs button'),imgs=document.querySelectorAll('.sphone img'),T={"home": ["Your day at a glance.", "Who owes you, who to chase, MOTs and services due, and the month’s takings closing like rings."], "jobs": ["Every job in one list.", "Booked, in progress, done and paid, with the reg, customer and price on each. Filter it with one tap."], "calendar": ["The diary, without the diary.", "Every booking on the day it’s in. Tap a day to see what’s coming through the door."], "jobcard": ["Everything about the car.", "Customer, reg, mileage, parts status, MOT and service dates, and a health check in colour."], "invoice": ["Invoices in seconds.", "Itemised labour and parts, your garage name on top. Share it as a PDF or send it on WhatsApp."], "reminders": ["Never miss an MOT.", "Every MOT and service due in the next 30 days, with the message already written. One tap to send."], "customers": ["All your customers, sorted.", "Name, number and reg for every customer and car. Search by any of them."]};
+  var tabs=document.querySelectorAll('.stabs button'),imgs=document.querySelectorAll('.sphone img'),T={"home": ["Your day at a glance.", "Who to chase, MOTs and services due, the month’s takings closing like rings, and your to-do list."], "jobs": ["Every job in one list.", "Booked, in progress, done and paid, with the reg, customer and price on each. Filter it with one tap."], "calendar": ["The diary, without the diary.", "Every booking on the day it’s in. Tap a day to see what’s coming through the door."], "jobcard": ["Everything about the car.", "Customer, reg, mileage, parts status, MOT and service dates, and a health check in colour."], "invoice": ["Invoices in seconds.", "Itemised labour and parts, your garage name on top. Share it as a PDF or send it on WhatsApp."], "reminders": ["Never miss an MOT.", "Every MOT and service due in the next 30 days, with the message already written. One tap to send."], "customers": ["All your customers, sorted.", "Name, number and reg for every customer and car. Search by any of them."]};
   tabs.forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.s;tabs.forEach(function(x){x.setAttribute('aria-selected',String(x===b));});imgs.forEach(function(i){i.classList.toggle('on',i.dataset.s===k);});document.getElementById('sTitle').textContent=T[k][0];document.getElementById('sText').textContent=T[k][1];});});
+  var dB=document.querySelectorAll('.dlist button'),dI=document.getElementById('dashImg'),dN=0,dT=null,dSeen=false;
+  function dGo(i){dN=i;dB.forEach(function(b,k){b.setAttribute('aria-pressed',String(k===i));});if(dI)dI.style.transform='translateY(-'+dB[i].dataset.y+'%)';}
+  function dAuto(){clearInterval(dT);if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;dT=setInterval(function(){dGo((dN+1)%dB.length);},4200);}
+  dB.forEach(function(b,k){b.addEventListener('click',function(){dGo(k);clearInterval(dT);setTimeout(dAuto,12000);});});
+  if(dB.length&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!dSeen){dSeen=true;dAuto();}});},{threshold:.4}).observe(document.getElementById('dashboard'));}
   var vids=document.querySelectorAll('.wphone video');
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}else v.pause();});},{threshold:.5});vids.forEach(function(v){io.observe(v);});}
   var st=document.getElementById('stick');
