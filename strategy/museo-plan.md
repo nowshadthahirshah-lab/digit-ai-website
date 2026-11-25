@@ -31,3 +31,25 @@ keepsy.gift, roomy.gift, wally.gift, lumo.gift, momentoroom.com, roomofus.com, g
 - Steps as cards: Pick your photos · Choose a room · Send it with a heart · Free/upgrade card
 - Smooth, slow motion (fade/slide up on scroll, gentle parallax in the 3D room)
 - Font: Inter (similar to Apple's SF Pro, which can't be used on our site). No Apple logos, names or icons.
+
+## Competitor research (25/11/2026, from their home pages only)
+| Competitor | What it is | Price | Gap for Museo |
+|---|---|---|---|
+| Gift Museum (giftmuseum.app) | 3D museum of photos/videos, link + heart QR | not shown | Single sender, files up to 10 MB, no stories/voice |
+| YourLovePage | Love website: timeline, letter, photos | free to build, $6.99 to send | Flat web page, couples only |
+| LoveMemo | Surprise site (Cinema, Wrapped, Video-game styles) + couple counter widget | one payment | Couples only, not 3D |
+| Rayxis Gifts | 3D photo album on desk, "Love Room 360°", 90 days online | free to make, pay to send | Couples only, max 20 photos, expires |
+| GiftsQR / Qlovy / 2-luv / Gifft.me | Photo + music + QR card pages | free / cheap | Flat, generic |
+| Wedding.studio / GuestPix | QR guest photo albums | paid | Not 3D, not a gift |
+
+## Unique Museo features (proposed)
+1. Audio guide – tap any photo to hear the sender tell its story (like a real museum audio guide)
+2. Group museum – friends/family each add photos via a link; one room from everyone (weddings, leaving, birthdays, memorials)
+3. Living museum – add a new wing every year; the gallery grows with the relationship/family (yearly upgrade)
+4. Museum plaques – each photo gets a small label: title, date, place (auto from photo data)
+5. Opening night – gift unlocks at a set date/time with a countdown
+6. Guestbook at the exit – the recipient leaves a reply/reaction that goes back to the sender
+7. Gift shop – order printed postcards / framed prints / "admission ticket" card with the heart QR
+8. Timeline corridor – photos arranged by date/place automatically
+9. Memorial mode – soft room, candle to light, guestbook for condolences
+10. AR frame – put one framed photo on your real wall with the phone camera
