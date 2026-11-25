@@ -9,7 +9,8 @@ Updated: 25/11/2026
 2. **Move the Stripe webhook secret.** Add `STRIPE_WEBHOOK_SECRET` to Supabase → Edge Functions → Secrets, take it out of the code, then redeploy `stripe-webhook`. Don't redeploy before the secret is set.
 3. **Trial = exactly 7 days.** Remove the duplicate trial in Stripe so customers get 7 days, not about 14. Card still required.
 4. **Check the Round 1 preview.** Open the Vercel preview for branch `round-1` and confirm it loads. Don't merge to `main` until the owner says go.
-5. **Test database for Round 2 (later).** Create a separate free Supabase project for testing (never the live one), and share only its URL and anon key. This is needed for live online approvals, the mechanic link and online booking.
+5. **Round 2 preview.** Branch `round-2` (built on `round-1`) adds customer health-check approval. It needs no database. Check its Vercel preview too.
+6. **Test database for the rest of Round 2 (later).** Create a separate free Supabase project for testing (never the live one), and share only its URL and anon key. This is needed for the mechanic link and online booking.
 
 ## Rules for Alif
 - Never share secret keys in chat (service_role, Stripe secret, webhook secret).
