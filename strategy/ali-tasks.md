@@ -1,9 +1,9 @@
-# Alif (Grok CEO bot): Workbay to-do list
+# Ali (Grok CEO bot): Workbay to-do list
 
-Alif handles the accounts and settings Claude can't reach: Vercel, Supabase, Stripe.
+Ali handles the accounts and settings Claude can't reach: Vercel, Supabase, Stripe.
 Updated: 25/11/2026
 
-## Waiting on Alif (in this order)
+## Waiting on Ali (in this order)
 
 1. **Link Vercel to GitHub.** Project → Settings → Git → connect `nowshadthahirshah-lab/workbay`, production branch `main`. After that, every merge to `main` goes live by itself.
 2. **Move the Stripe webhook secret.** Add `STRIPE_WEBHOOK_SECRET` to Supabase → Edge Functions → Secrets, take it out of the code, then redeploy `stripe-webhook`. Don't redeploy before the secret is set.
@@ -16,7 +16,7 @@ Updated: 25/11/2026
 
 8. **Fix "No card" in Instagram posts.** A card is needed at sign-up, so posts must say "7 days free. Cancel any time." Full prompt below under "Instagram fix".
 
-## Rules for Alif
+## Rules for Ali
 - Never share secret keys in chat (service_role, Stripe secret, webhook secret).
 - Don't touch live Stripe products/prices without the owner's OK. The Stripe account is shared with other businesses.
 - Change Stripe IDs in the app and the webhook together, or not at all.
@@ -25,16 +25,16 @@ Updated: 25/11/2026
 ## Done
 - Created the private repo `nowshadthahirshah-lab/workbay` matching the live site (handover in `docs/HANDOVER.md`).
 
-## Message to paste to Alif
+## Message to paste to Ali
 > 1. Link the Vercel project to GitHub repo nowshadthahirshah-lab/workbay (production branch: main).
 > 2. Add STRIPE_WEBHOOK_SECRET to Supabase Edge Function secrets and remove it from the code, then redeploy stripe-webhook.
 > 3. Make the Stripe trial exactly 7 days (remove the duplicate trial so it's not ~14).
 > 4. Open the Vercel preview for branch round-1 and confirm it loads. Don't merge to main until I say.
 
 
-## Vehicle data API applications (prompt for Alif)
+## Vehicle data API applications (prompt for Ali)
 
-> Alif, please apply for two free UK government vehicle data APIs for Workbay, our garage management app for independent UK garages. Use the Workbay business name, business email and business postal address (not anyone's personal email).
+> Ali, please apply for two free UK government vehicle data APIs for Workbay, our garage management app for independent UK garages. Use the Workbay business name, business email and business postal address (not anyone's personal email).
 >
 > **1. DVLA Vehicle Enquiry Service (VES) API**
 > - Apply here: https://register-for-ves.driver-vehicle-licensing.api.gov.uk/
@@ -60,9 +60,9 @@ Updated: 25/11/2026
 > **Terms to respect** (tell me if their terms say anything different): show the data only to the garage that looked it up, don't resell or bulk-download it, and credit "Contains public sector information from DVLA/DVSA" where they ask.
 
 
-## Instagram fix (prompt for Alif)
+## Instagram fix (prompt for Ali)
 
-> Alif, our Instagram posts say "7 days free. No card." That's wrong: Stripe asks for a card at sign-up. From now on always say **"7 days free. Cancel any time."** and never say "no card" anywhere (posts, captions, Reels, stories, DMs, comments, bio).
+> Ali, our Instagram posts say "7 days free. No card." That's wrong: Stripe asks for a card at sign-up. From now on always say **"7 days free. Cancel any time."** and never say "no card" anywhere (posts, captions, Reels, stories, DMs, comments, bio).
 >
 > New files (I'll send them to you):
 > - `slides/slide-7.png`: the new last slide of the carousel ("7 days free. Cancel any time.")
