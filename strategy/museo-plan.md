@@ -12,9 +12,10 @@ Photos/videos → a little 3D gallery you can walk through → share as link or 
 | Audience | All occasions (couples, birthdays, Mother's Day, weddings, memorials) |
 | Pricing | Free with watermark; paid upgrade (~£4.99): no watermark, voice note, 50 photos, online forever |
 | v1 extras | Room themes + music; voice note in paid; unlock date later |
-| Colours | (from @uxdam_ 'HUES' palette) Cream #FFF9EF bg · Rose #CD6892 main · Blush #FFD9EE soft · Burgundy #70172D deep/logo · Ink #111111 text · Golden #C99432 accent (frames, heart QR) |
-| Gradients | Main: #FFD9EE→#CD6892→#70172D · Soft: #FFF9EF→#FFD9EE · Warm: #CD6892→#C99432 · Deep: #70172D→#CD6892 |
-| Fonts | TBC – user sending typography links |
+| Theme | Editorial fashion style from @varrismansuri 'Trending Color Palettes Pt.3' (Coastal Breeze): big white grotesk caps over a photo, small HEX/RGB/arrow corner labels, grey-blue backdrop |
+| Colours | Floral White #FFFAF0 bg · Sky Blue #87CEEB soft · Steel Blue #4682B4 main/buttons · Slate Grey #708090 text · Gallery Grey #8A9996 photo backdrop · Camel #C49A6C warm accent (frames) |
+| Gradient | Gallery Grey #8A9996 → #87A9B8 → Steel Blue #4682B4 (top to bottom) |
+| Fonts | Inter (bold caps headlines, regular body) – matches the reference; TBC final |
 
 ## Open questions
 - Logo: frame + heart, or frame + arch doorway?
