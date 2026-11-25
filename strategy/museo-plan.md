@@ -127,3 +127,19 @@ Dropped 3D museum/rooms. Product = an envelope that opens into a photo-story let
 6. Write the opening note + final message; pick paper & ink colour.
 7. Preview exactly as receiver sees it.
 8. Send → paywall (free teaser vs £6.99 full vs £14.99 group) → link + heart QR + send-at-midnight.
+
+### Letter themes (agreed 25/11/2026)
+**Classic** – clean modern letter. Cream #FFFAF0 paper, Ink #1D2A38, Coastal blue #4682B4 accents, Camel #C49A6C heart seal. Fonts: Inter (text) + a neat handwriting face for notes. White-bordered photos, soft shadow, lots of space.
+**Vintage** – old love letter. Aged paper #F3E6CC with fibre texture, sepia ink #4A3423, deep red wax seal #8E2B2B, kraft envelope #C8A27A. Fonts: typewriter (e.g. Special Elite) for captions + script handwriting for notes. Photos as polaroids/deckle-edge prints with photo corners, postage stamp + postmark with the date, slight warm film grain.
+
+### Added value (plan)
+Core (v1): themes Classic + Vintage · voice per photo · music · captions · unlock date ("Open on 14/02") · heart QR · reply with a memory · group letter.
+Extra value (v1.1+):
+- Keepsake PDF: download the letter as a printable booklet (paid)
+- Printed letter: real envelope + printed photos + heart QR posted to them (£19.99+)
+- Countdown envelope: sealed until the date, shows a gentle countdown
+- "Read receipt": sender gets a notification when it's opened (with permission)
+- Handwriting: write the note with your finger, kept as your real handwriting
+- Old photo restore: auto-fix faded/scanned old photos (for vintage/memorial)
+- Yearly letter: add a new letter each anniversary into the same envelope bundle
+- Translate captions to the receiver's language
