@@ -18,6 +18,8 @@ Updated: 25/11/2026
 
 9. **Switch on vehicle data (when the DVLA/DVSA keys arrive).** Follow `docs/VEHICLE-DATA.md` in the workbay repo: run the migration, add the secrets, deploy `vehicle-lookup` and `mot-nightly`, schedule the nightly check. Test project first; live only when the owner says go.
 
+10. **Turn on the Stripe customer portal.** Stripe → Settings → Billing → Customer portal: allow cancelling and updating the card. Send the owner the portal link (it's not a secret) so Claude can add a "Manage subscription" button in Workbay Settings. Free.
+
 ## Rules for Ali
 - Never share secret keys in chat (service_role, Stripe secret, webhook secret).
 - Don't touch live Stripe products/prices without the owner's OK. The Stripe account is shared with other businesses.
