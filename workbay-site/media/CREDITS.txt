@@ -1,4 +1,4 @@
-Workshop photos (media/job-*.webp) are from Pexels and used under the Pexels licence
+Workshop photos (media/job-*.webp) are from Pexels, cropped and colour-graded to match the site with tools/grade-photos.py, and used under the Pexels licence
 (free for commercial use, no attribution required): https://www.pexels.com/license/
 
 job-tread.webp  https://www.pexels.com/photo/car-tire-closeup-photo-116676/
