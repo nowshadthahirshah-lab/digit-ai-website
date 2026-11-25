@@ -61,6 +61,15 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
 .seal svg{width:26px;height:26px;fill:rgba(255,255,255,.88)}
 .tapme{position:absolute;left:0;right:0;bottom:-46px;text-align:center;font:500 14px var(--font-ui);color:var(--muted);animation:breathe 2.4s ease-in-out infinite}
 #app[data-theme="vintage"] .tapme{color:#d8c5a5}
+.envcap{position:absolute;left:-10%;right:-10%;top:-64px;text-align:center;font-family:var(--hand);font-size:clamp(24px,6.5vw,32px);color:var(--ink);opacity:0;animation:capIn 1s ease .3s forwards}
+#app[data-theme="vintage"] .envcap{color:#F3E6CC}
+#app[data-theme="scrapbook"] .envcap{font-family:"Permanent Marker";font-size:clamp(18px,5vw,24px)}
+@keyframes capIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.envwrap.open .envcap{opacity:0!important;transition:opacity .4s}
+.half{font-family:var(--hand);font-size:calc(var(--hand-size) * .7);color:var(--accent);text-align:center;margin-top:8px;position:relative;opacity:0;animation:capIn .8s ease .7s forwards}
+.ideas{display:flex;flex-wrap:wrap;gap:6px}
+.ideas b{width:100%;font:600 12px var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:#5E6E7E}
+.ideas button{border:1px solid #e1d8c8;background:#FFFAF0;border-radius:999px;padding:7px 12px;font:14px "Caveat",cursive;font-size:17px;cursor:pointer;color:#1D2A38}
 @keyframes breathe{50%{opacity:.45;transform:translateY(3px)}}
 .stamp,.postmark,.tape,.sticker{display:none}
 #app[data-theme="vintage"] .stamp{display:block;position:absolute;right:5%;top:8%;width:52px;height:64px;background:#F3E6CC;z-index:5;box-shadow:0 1px 2px rgba(0,0,0,.2);overflow:hidden}
@@ -213,6 +222,7 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
         <button class="filebtn" type="button" id="pickPhotos">＋ Add photos from your phone</button>
         <input type="file" id="files" accept="image/*" multiple hidden>
         <div class="thumbs" id="thumbs"></div>
+        <div class="ideas" id="ideas" hidden></div>
       </div>
       <label class="fld"><span>Last page message</span><textarea id="fEnd"></textarea></label>
       <div class="fld"><span>Voice message (optional)</span>
@@ -279,7 +289,7 @@ function viewEnvelope(){
       <div class="stamp"><i>♥<br>1st</i></div><div class="postmark">${new Date().toLocaleDateString('en-GB')}<br>WITH LOVE</div>
       <span class="tape" style="left:-14px;top:14px;transform:rotate(-30deg)"></span><span class="tape" style="right:-14px;bottom:18px;transform:rotate(-28deg)"></span>
       <span class="sticker">xo!</span>
-    </div><div class="tapme">Tap to open</div></div>`;
+    </div><div class="tapme">${C().tap}</div><div class="envcap">${C().env}</div></div>`;
   const env=v.querySelector('#env');
   const open=()=>{ if(env.classList.contains('open'))return; env.classList.add('open'); opened=true; startMusic();
     setTimeout(()=>env.classList.add('gone'),reduce?10:1700); setTimeout(()=>{busy=false;go(1);},reduce?20:2150); };
@@ -303,10 +313,16 @@ function playStrokes(canvas,strokes,ink,pen){
 }
 const inkFor=()=>getComputedStyle(app).getPropertyValue('--ink').trim()||'#1D2A38';
 const isScrap=()=>app.dataset.theme==='scrapbook';
+const WORDS=['one','two','three','four','five','six','seven','eight','nine'];
+function C(){ const to=esc(L.to); return ({
+  classic:{env:`Something for you, ${to}`,tap:'Tap to open',note:`A letter for ${to}`,mem:(i,n)=>`Memory ${i} of ${n}`,half:'Keep going, the best is still to come',last:'Last page',reply:'Reply with a memory',back:'Make one back'},
+  vintage:{env:`Sealed with love, for ${to}`,tap:'Break the seal',note:`My dearest ${to}`,mem:(i)=>`Chapter ${WORDS[i-1]||i}`,half:'Turn the page, my love',last:'Until we meet again',reply:'Write back',back:'Send a letter in return'},
+  scrapbook:{env:'psst… this is for you! ♥',tap:'Tap me!',note:'hey you ♥',mem:(i)=>`memory #${i}`,half:"wait… there's more!!",last:'the end… for now',reply:'Send one back!',back:'Make your own'}
+})[app.dataset.theme]; }
 
 function viewNote(){
   const v=document.createElement('div'); v.className='view';
-  v.innerHTML=`<article class="paper"><div class="kicker">${isScrap()?'hey you ♥':'A letter for '+esc(L.to)}</div><div class="note"></div><div class="sign"></div>
+  v.innerHTML=`<article class="paper"><div class="kicker">${C().note}</div><div class="note"></div><div class="sign"></div>
   ${L.voice?`<button class="voice" type="button">▶ Hear ${esc(L.from)}'s voice</button>`:''}</article>`;
   requestAnimationFrame(()=>{
     const note=v.querySelector('.note'); let t;
@@ -319,16 +335,16 @@ function viewNote(){
 }
 function viewPhoto(p,i){
   const v=document.createElement('div'); v.className='view';
-  v.innerHTML=`<article class="paper"><div class="kicker">${isScrap()?'memory #'+(i+1):'Memory '+(i+1)+' of '+L.pages.length}</div>
+  v.innerHTML=`<article class="paper"><div class="kicker">${C().mem(i+1,L.pages.length)}</div>
    <figure class="photo"><span class="ptape"></span><img alt="${esc(p.cap||'Photo')}" src="${p.src}"></figure>
    ${doodle}
-   <div class="cap"><b>${esc(p.cap||'')}</b><time>${esc(p.date||'')}</time></div></article>`;
+   <div class="cap"><b>${esc(p.cap||'')}</b><time>${esc(p.date||'')}</time></div>${(L.pages.length>=3&&i===Math.floor(L.pages.length/2))?`<div class="half">${C().half}</div>`:''}</article>`;
   return v;
 }
 function viewEnd(){
   const v=document.createElement('div'); v.className='view';
-  v.innerHTML=`<article class="paper"><div class="kicker">${isScrap()?'the end… for now':'Last page'}</div><div class="note" style="flex:0 0 auto"></div><div class="sign" style="margin-top:10px"></div>
-   <div class="end-actions"><button type="button" class="reply">Reply with a memory</button><button type="button" class="ghost makeBack">Make one back</button></div></article>`;
+  v.innerHTML=`<article class="paper"><div class="kicker">${C().last}</div><div class="note" style="flex:0 0 auto"></div><div class="sign" style="margin-top:10px"></div>
+   <div class="end-actions"><button type="button" class="reply">${C().reply}</button><button type="button" class="ghost makeBack">${C().back}</button></div></article>`;
   requestAnimationFrame(()=>{const t=writeLines(v.querySelector('.note'),L.end,300); setTimeout(()=>writeLines(v.querySelector('.sign'),L.from+' ♥',0),reduce?0:t);
     v.querySelector('.reply').addEventListener('click',()=>toast('Replies arrive in the full app'));
     v.querySelector('.makeBack').addEventListener('click',openEditor);});
@@ -372,7 +388,8 @@ $('#pickPhotos').addEventListener('click',()=>$('#files').click());
 $('#files').addEventListener('change',e=>{ for(const f of [...e.target.files]){ if(draft.pages.length>=9)break; draft.pages.push({src:URL.createObjectURL(f),cap:'',date:new Date(f.lastModified).toLocaleDateString('en-GB')}); } e.target.value=''; renderThumbs(); });
 function renderThumbs(){
   $('#thumbs').innerHTML=draft.pages.map((p,i)=>`<div class="thumb"><img src="${p.src}" alt=""><div class="fl"><input type="text" id="cap${i}" placeholder="Caption, e.g. Our first trip" value="${esc(p.cap)}" maxlength="40"><input type="text" id="date${i}" placeholder="Date" value="${esc(p.date)}" maxlength="20"></div></div>`).join('') || '<span class="small">No photos yet. Add up to 9.</span>';
-  draft.pages.forEach((p,i)=>{$('#cap'+i).addEventListener('input',e=>p.cap=e.target.value);$('#date'+i).addEventListener('input',e=>p.date=e.target.value);});
+  draft.pages.forEach((p,i)=>{$('#cap'+i).addEventListener('input',e=>p.cap=e.target.value);$('#cap'+i).addEventListener('focus',()=>lastCap=i);$('#date'+i).addEventListener('input',e=>p.date=e.target.value);});
+  $('#ideas').hidden=!draft.pages.length;
 }
 $('#pickVoice').addEventListener('click',()=>$('#voiceFile').click());
 $('#voiceFile').addEventListener('change',e=>{const f=e.target.files[0]; if(!f)return; draft.voice=URL.createObjectURL(f); $('#voiceName').textContent='Added: '+f.name; e.target.value='';});
@@ -398,6 +415,14 @@ $('#preview').addEventListener('click',()=>{
      pages:draft.pages.length?draft.pages:L.pages};
   sheet.classList.remove('on'); opened=false; stopMusic(); idx=0; rebuild(); toast('Your letter is ready. Tap the envelope.');
 });
+
+// ---------- caption ideas ----------
+let lastCap=null;
+const IDEAS=['The day everything started','I still laugh about this','My favourite version of you','We didn\'t know it then, but…','Best. Day. Ever.','Home is wherever you are','I\'d do this again tomorrow','Look how young we were!'];
+$('#ideas').innerHTML='<b>Caption ideas, tap to use</b>'+IDEAS.map(t=>`<button type="button">${esc(t)}</button>`).join('');
+$('#ideas').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b||!draft||!draft.pages.length)return;
+  let i=lastCap; if(i===null||i>=draft.pages.length){i=draft.pages.findIndex(p=>!p.cap); if(i<0)i=0;}
+  draft.pages[i].cap=b.textContent; $('#cap'+i).value=b.textContent; lastCap=Math.min(i+1,draft.pages.length-1); toast('Caption added to photo '+(i+1));});
 
 // ---------- start ----------
 stage.appendChild(build(0)); dots();
