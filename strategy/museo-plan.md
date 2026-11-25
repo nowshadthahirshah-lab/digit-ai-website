@@ -23,3 +23,11 @@ Photos/videos → a little 3D gallery you can walk through → share as link or 
 
 ## Other names checked (available on 24/11/2026)
 keepsy.gift, roomy.gift, wally.gift, lumo.gift, momentoroom.com, roomofus.com, giftaroom.com, giftedroom.com, ourlittlegallery.com
+
+## Design feel: "Apple-style" (agreed 25/11/2026)
+- Big tight headline (bold, negative letter-spacing), short grey subline, two CTAs: pill button + "Watch a tour ›" text link
+- Lots of white space, cream background, rounded 36–44px cards ("bento" grid), frosted-glass nav and controls
+- Hero "stage": gallery wall with angled frames on the grey→steel-blue gradient; frosted pill controls (Walk · Music · Share)
+- Steps as cards: Pick your photos · Choose a room · Send it with a heart · Free/upgrade card
+- Smooth, slow motion (fade/slide up on scroll, gentle parallax in the 3D room)
+- Font: Inter (similar to Apple's SF Pro, which can't be used on our site). No Apple logos, names or icons.
