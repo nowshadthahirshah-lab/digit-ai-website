@@ -16,6 +16,8 @@ Updated: 25/11/2026
 
 8. **Fix "No card" in Instagram posts.** A card is needed at sign-up, so posts must say "7 days free. Cancel any time." Full prompt below under "Instagram fix".
 
+9. **Switch on vehicle data (when the DVLA/DVSA keys arrive).** Follow `docs/VEHICLE-DATA.md` in the workbay repo: run the migration, add the secrets, deploy `vehicle-lookup` and `mot-nightly`, schedule the nightly check. Test project first; live only when the owner says go.
+
 ## Rules for Ali
 - Never share secret keys in chat (service_role, Stripe secret, webhook secret).
 - Don't touch live Stripe products/prices without the owner's OK. The Stripe account is shared with other businesses.
