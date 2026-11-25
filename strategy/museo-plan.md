@@ -63,3 +63,33 @@ keepsy.gift, roomy.gift, wally.gift, lumo.gift, momentoroom.com, roomofus.com, g
 | QLovy | Free 24-hour gift; paid 6-month or lifetime (one-time) | not shown |
 | Gift Museum | Card payments + refund policy shown; price not public | unknown |
 Pattern: free to try → small one-time payment to send / keep online longer. No subscriptions. Time limits push upgrades.
+
+## Conversion plan (maximum free → paid) – 25/11/2026
+Principle: let them fall in love first, ask for money at the emotional peak (just before sending), make paying one tap.
+
+### Funnel
+1. Landing → "Make yours free" (no sign-up, no card). Hero = 6s video of walking through a real Museo.
+2. Upload photos → museum builds itself in seconds (the "wow").
+3. Personalise: room theme, music, title, labels. Prompt: "Record the story behind this photo" (audio guide – the paid hook; they can record, it plays in preview).
+4. Preview walk-through: full experience, their own voice playing. Peak emotion.
+5. "Send it 💌" → paywall here (only now ask for email).
+6. Pay (Apple Pay / Google Pay / card, local currency) → share link + heart QR + "send at midnight" option.
+7. After: order bump (printed admission ticket), and the recipient's "Make one back" button restarts the loop.
+
+### Paywall (3 options, middle pre-selected)
+| Teaser – Free | Museo Gift – £6.99 (Most chosen) | Group Museo – £14.99 |
+| 3 photos, watermark, 7 days | All photos + videos, your voice, music, no watermark, forever | Everyone adds photos + voices, all of the above |
+Below: "Add a printed admission ticket with heart QR +£4.99" (tick box, unticked).
+Trust under button: 14-day money-back · secure payment · real reviews only.
+
+### Rules
+- Never ask for sign-up before the preview. Email only at send.
+- Their voice recording is kept in preview but only sent with the paid gift (loss aversion, honest).
+- Real urgency only: the occasion date they entered ("Her birthday is in 2 days"). No fake timers or fake counters.
+- Prices in local currency, lower in lower-income countries.
+- Abandoned send: email after 1h and 24h ("Your Museo is ready to send") with preview link.
+- Recipient side: subtle "Made with Museo · make one back" at the exit (free users) – the growth loop.
+
+### Metrics to track (targets to test, not facts)
+Landing → start · start → preview · preview → send click · send click → paid (aim 15–25%) · overall visitor → paid (aim 3–5%) · average order (aim £8+) · recipients who make one back.
+A/B test one thing at a time: paywall position, £5.99 vs £6.99, teaser photos 3 vs 5, default tier.
