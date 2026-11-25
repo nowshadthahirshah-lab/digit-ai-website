@@ -28,7 +28,7 @@ Do NOT generate images. Use real app screenshots only.
 | 4 | MOT **reminders** sent for you | The message is written. One tap to send. | Phone: MOT reminders |
 | 5 | All your **customers**, sorted | Every name, number and reg in one place. | Phone: customer list |
 | 6 | Works on your **phone** or garage computer | Same garage, any screen. Nothing to install. | Monitor (desktop shot) + phone overlapping |
-| 7 | **7 days free.** No card. | Link in bio @work_bayapp | Phone right, lime "Start free trial" pill bottom-left |
+| 7 | **7 days free.** Cancel any time. | Link in bio @work_bayapp | Phone right, lime "Start free trial" pill bottom-left |
 
 4. QA every slide: no text cut off, readable on a phone, no overlaps,
    no fake-looking UI, no typos. Output PNGs to /slides.
@@ -43,7 +43,7 @@ Workbay puts your whole garage in one app:
 → Every customer, number and reg in one place
 → Works on your phone in the workshop or the computer in the office
 
-7 days free. No card needed. Link in bio @work_bayapp
+7 days free. Cancel any time. Link in bio @work_bayapp
 
 What's the one job you'd love to stop doing by hand?
 

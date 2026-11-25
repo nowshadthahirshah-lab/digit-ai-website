@@ -45,7 +45,7 @@
 ## Profile bio
 🔧 Run your whole garage from your phone
 Jobs · Invoices · MOT reminders
-👇 7 days free, no card
+👇 7 days free, cancel any time
 
 ## Rules
 - Never show the app logo or a fake screen in Grok videos – real screenshots only for app posts.

@@ -14,6 +14,8 @@ Updated: 25/11/2026
 
 7. **Apply for UK vehicle data APIs (both free).** Full prompt below under "Vehicle data API applications". Keys go only into Supabase Edge Function secrets, never into chat, GitHub or the app code.
 
+8. **Fix "No card" in Instagram posts.** A card is needed at sign-up, so posts must say "7 days free. Cancel any time." Full prompt below under "Instagram fix".
+
 ## Rules for Alif
 - Never share secret keys in chat (service_role, Stripe secret, webhook secret).
 - Don't touch live Stripe products/prices without the owner's OK. The Stripe account is shared with other businesses.
@@ -56,3 +58,24 @@ Updated: 25/11/2026
 > - Then tell me: which APIs were approved, the date, any usage limits or terms they set, and when the DVSA client secret expires.
 >
 > **Terms to respect** (tell me if their terms say anything different): show the data only to the garage that looked it up, don't resell or bulk-download it, and credit "Contains public sector information from DVLA/DVSA" where they ask.
+
+
+## Instagram fix (prompt for Alif)
+
+> Alif, our Instagram posts say "7 days free. No card." That's wrong: Stripe asks for a card at sign-up. From now on always say **"7 days free. Cancel any time."** and never say "no card" anywhere (posts, captions, Reels, stories, DMs, comments, bio).
+>
+> New files (I'll send them to you):
+> - `slides/slide-7.png`: the new last slide of the carousel ("7 days free. Cancel any time.")
+> - `reels/workbay-reel-15s-music.mp4` and `reels/workbay-reel-15s-no-music.mp4`: the Reel with the new end screen
+>
+> **If the carousel or Reel is NOT posted yet** (drafts or scheduled): swap in the new files and the new caption before it goes out.
+>
+> **If they ARE already posted** (Instagram can't swap an image or a Reel video after posting):
+> 1. Edit the caption: change "7 days free. No card needed." to "7 days free. Cancel any time."
+> 2. Carousel: remove slide 7 from the post (Edit → delete that image), so the "No card" slide is gone. If the post is less than 2 days old or has few likes, archive it instead (don't delete) and repost it with the new slide 7.
+> 3. Reel: edit the caption, and pin this comment: "7 days free, then £29 a month. Cancel any time. Link in bio 👆". Repost the new 15-second Reel later as a fresh post, rather than deleting the old one.
+> 4. Check our bio, highlights and any scheduled stories for "no card" and fix them.
+>
+> Also update your content rules: Offer = "7 days free, then £29 a month. Cancel any time." (A card is needed at sign-up.)
+>
+> When done, tell me which posts you changed and how (caption edited, slide removed, archived and reposted).
