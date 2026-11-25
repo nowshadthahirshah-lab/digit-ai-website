@@ -143,3 +143,4 @@ Extra value (v1.1+):
 - Old photo restore: auto-fix faded/scanned old photos (for vintage/memorial)
 - Yearly letter: add a new letter each anniversary into the same envelope bundle
 - Translate captions to the receiver's language
+**Scrapbook** (3rd theme, added 25/11/2026) – playful handmade journal. Off-white dotted/grid paper #FBF8F2, pastel tape (sky #87CEEB, peach #F7C9A9, sage #BFD8C2), black marker ink #222. Fonts: marker handwriting for notes + clean sans for captions. Photos taped at slight angles, doodles (hearts, stars, arrows), stickers, handwritten labels, torn-paper edges. For friends, birthdays, couples, kids, graduations. Paid theme.
