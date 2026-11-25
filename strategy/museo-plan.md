@@ -53,3 +53,13 @@ keepsy.gift, roomy.gift, wally.gift, lumo.gift, momentoroom.com, roomofus.com, g
 8. Timeline corridor – photos arranged by date/place automatically
 9. Memorial mode – soft room, candle to light, guestbook for condolences
 10. AR frame – put one framed photo on your real wall with the phone camera
+
+## How competitors make money (checked 25/11/2026)
+| Competitor | Model | Price |
+|---|---|---|
+| YourLovePage | Free to build + preview; pay once to send | $6.99 (custom URL, no watermark, unlimited photos, password) |
+| Rayxis Gifts | Most gifts free (10 photos, 10 days online); premium credits for 3D rooms | 3 credits $3.49 · 6 $4.99 · 10 $6.99 (20 photos, 90 days) |
+| LoveMemo | App + widget free; pay once to publish, pick 1/2/3/6/12 months online | Mexico App Store listing shows $39–$69 (likely MXN, ~£1.50–£3) |
+| QLovy | Free 24-hour gift; paid 6-month or lifetime (one-time) | not shown |
+| Gift Museum | Card payments + refund policy shown; price not public | unknown |
+Pattern: free to try → small one-time payment to send / keep online longer. No subscriptions. Time limits push upgrades.
