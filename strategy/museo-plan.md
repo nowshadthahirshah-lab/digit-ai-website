@@ -144,3 +144,14 @@ Extra value (v1.1+):
 - Yearly letter: add a new letter each anniversary into the same envelope bundle
 - Translate captions to the receiver's language
 **Scrapbook** (3rd theme, added 25/11/2026) – playful handmade journal. Off-white dotted/grid paper #FBF8F2, pastel tape (sky #87CEEB, peach #F7C9A9, sage #BFD8C2), black marker ink #222. Fonts: marker handwriting for notes + clean sans for captions. Photos taped at slight angles, doodles (hearts, stars, arrows), stickers, handwritten labels, torn-paper edges. For friends, birthdays, couples, kids, graduations. Paid theme.
+
+### Digital handwriting (added 25/11/2026)
+Sender writes with finger/stylus on the phone; kept as real strokes (vector), not converted to a font.
+- Write the opening note, final message, captions, signature, or doodles on photos.
+- Pens: fountain pen, ballpoint, pencil, marker; ink colours per theme (navy, sepia, red, black).
+- Lined / plain paper guide while writing; undo, clear, zoom; landscape mode for more space.
+- Playback: on the receiver's screen the words are written out stroke by stroke, like watching them write (can skip).
+- Signature saved to reuse in future letters.
+- Option: "Type instead" for people who prefer typing (shown in a handwriting-style font, labelled as typed).
+- Printed/PDF versions keep the real handwriting.
+Tier: signature + 1 handwritten note free; unlimited handwriting + playback in paid.
