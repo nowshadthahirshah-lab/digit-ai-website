@@ -1,2 +1,1 @@
-All 3D models, textures, HDRI lighting and the example landscape photos (cropped from HDRI panoramas)
-are from Poly Haven (https://polyhaven.com) and are CC0 / public domain.
+Example photos (assets/photos) are cropped from Poly Haven HDRI panoramas (https://polyhaven.com), CC0 / public domain.
