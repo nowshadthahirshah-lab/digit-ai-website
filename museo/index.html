@@ -175,6 +175,30 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
 .primary{border:0;background:#4682B4;color:#fff;font:600 16px var(--font-ui);padding:14px;border-radius:999px;cursor:pointer}
 .small{font:13px var(--font-ui);color:#5E6E7E;margin:0}
 .filebtn{border:1px solid #e1d8c8;background:#fff;border-radius:12px;padding:12px;font:500 14px var(--font-ui);cursor:pointer;text-align:left;color:#1D2A38}
+.pro{font:700 9px var(--font-ui);letter-spacing:.08em;background:#C49A6C;color:#fff;border-radius:4px;padding:2px 4px;margin-left:5px;vertical-align:2px}
+#app.wm .paper::after{content:"PREVIEW · MUSEO";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-24deg);font:700 clamp(22px,7vw,34px) var(--font-ui);letter-spacing:.2em;color:rgba(0,0,0,.09);white-space:nowrap;pointer-events:none;z-index:9}
+.occrow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.occrow::-webkit-scrollbar{display:none}
+.occrow button{flex:0 0 auto;border:1px solid #e1d8c8;background:#fff;border-radius:999px;padding:7px 12px;font:500 13px var(--font-ui);cursor:pointer;color:#1D2A38}
+.occrow button[aria-pressed="true"]{background:#1D2A38;color:#fff;border-color:#1D2A38}
+.tmpl{display:grid;gap:6px;min-width:0}
+.tmpl b{font:600 12px var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:#5E6E7E}
+.tmpl button{text-align:left;border:1px solid #e1d8c8;background:#FFFAF0;border-radius:12px;padding:9px 12px;font:18px "Caveat",cursive;line-height:1.2;cursor:pointer;color:#1D2A38;white-space:pre-line}
+.send{background:#1D2A38}
+.modal{position:absolute;inset:0;background:rgba(10,15,20,.55);z-index:40;display:grid;place-items:end center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mcard{background:#FFFDF8;color:#1D2A38;border-radius:22px;width:100%;max-width:520px;max-height:90%;overflow:auto;padding:20px;margin-bottom:calc(16px + env(safe-area-inset-bottom,0px));box-sizing:border-box;animation:capIn .4s ease}
+.mcard h3{margin:0 0 4px;font:600 20px var(--font-ui)}
+.mcard .used{font:14px var(--font-ui);color:#5E6E7E;margin:0 0 14px}
+.plans{display:grid;gap:10px}
+.plan{border:1.5px solid #e1d8c8;border-radius:16px;padding:14px;display:grid;gap:4px;cursor:pointer;background:#fff;text-align:left;font:14px var(--font-ui);color:#1D2A38}
+.plan[aria-pressed="true"]{border-color:#4682B4;box-shadow:0 0 0 3px rgba(70,130,180,.18)}
+.plan[disabled]{opacity:.45;cursor:not-allowed}
+.plan .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.plan .top b{font:600 16px var(--font-ui)}.plan .top span{font:600 18px var(--font-ui);font-variant-numeric:tabular-nums}
+.plan small{color:#5E6E7E;font-size:13px;line-height:1.4}
+.plan .tag{font:600 11px var(--font-ui);color:#4682B4;letter-spacing:.06em;text-transform:uppercase}
+.mcard .primary{width:100%;margin-top:14px}
+.mcard .note2{font:12px var(--font-ui);color:#5E6E7E;text-align:center;margin:10px 0 0}
 .toast{position:absolute;left:50%;bottom:86px;transform:translateX(-50%) translateY(20px);background:#1D2A38;color:#fff;font:500 14px var(--font-ui);padding:10px 16px;border-radius:999px;opacity:0;transition:all .35s;z-index:30;pointer-events:none;max-width:calc(100% - 32px);text-align:center}
 .toast.on{opacity:1;transform:translateX(-50%)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
@@ -185,10 +209,10 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
     <span class="logo">MUSEO</span>
     <div class="themes" role="group" aria-label="Letter style">
       <button class="pill" type="button" data-t="classic" aria-pressed="true">Classic</button>
-      <button class="pill" type="button" data-t="vintage" aria-pressed="false">Vintage</button>
-      <button class="pill" type="button" data-t="scrapbook" aria-pressed="false">Scrapbook</button>
+      <button class="pill" type="button" data-t="vintage" aria-pressed="false">Vintage<span class="pro">PRO</span></button>
+      <button class="pill" type="button" data-t="scrapbook" aria-pressed="false">Scrapbook<span class="pro">PRO</span></button>
     </div>
-    <button class="make" id="openEditor" type="button">Make your own</button>
+    <div style="display:flex;gap:6px"><button class="make send" id="sendBtn" type="button" hidden>Send</button><button class="make" id="openEditor" type="button">Make your own</button></div>
   </div>
 
   <div class="stage" id="stage"><span class="example" id="exampleTag">Example letter</span></div>
@@ -209,9 +233,11 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
         <label class="fld"><span>For</span><input type="text" id="fTo" maxlength="24"></label>
         <label class="fld"><span>From</span><input type="text" id="fFrom" maxlength="24"></label>
       </div>
+      <div class="fld"><span>Occasion</span><div class="occrow" id="occRow"></div></div>
       <div class="fld"><span>Opening note</span>
-        <div class="tabs"><button type="button" id="tabType" aria-pressed="true">Type</button><button type="button" id="tabHand" aria-pressed="false">Handwrite</button></div>
+        <div class="tabs"><button type="button" id="tabType" aria-pressed="true">Type</button><button type="button" id="tabHand" aria-pressed="false">Handwrite<span class="pro">PRO</span></button></div>
         <textarea id="fNote"></textarea>
+        <div class="tmpl" id="noteTmpl"></div>
         <div id="handBox" hidden>
           <canvas class="pad" id="pad"></canvas>
           <div class="pens" style="margin-top:8px">
@@ -224,14 +250,14 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
           <p class="small">Write with your finger. Your real handwriting is kept and plays back stroke by stroke when they open it.</p>
         </div>
       </div>
-      <div class="fld"><span>Photos (up to 9)</span>
+      <div class="fld"><span>Photos (5 free · up to 9 with <span class="pro">PRO</span>)</span>
         <button class="filebtn" type="button" id="pickPhotos">＋ Add photos from your phone</button>
         <input type="file" id="files" accept="image/*" multiple hidden>
         <div class="thumbs" id="thumbs"></div>
         <div class="ideas" id="ideas" hidden></div>
       </div>
-      <label class="fld"><span>Last page message</span><textarea id="fEnd"></textarea></label>
-      <div class="fld"><span>Voice message (optional)</span>
+      <div class="fld"><span>Last page message</span><textarea id="fEnd"></textarea><div class="tmpl" id="endTmpl"></div></div>
+      <div class="fld"><span>Voice message (optional) <span class="pro">PRO</span></span>
         <button class="filebtn" type="button" id="pickVoice">🎙 Add a voice recording (audio file)</button>
         <input type="file" id="voiceFile" accept="audio/*" hidden>
         <span class="small" id="voiceName">Plays from the first page.</span>
@@ -240,6 +266,18 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
       <p class="small">In this preview everything stays on your device. Nothing is uploaded or sent.</p>
     </div>
   </section>
+  <div class="modal" id="pay" hidden><div class="mcard" role="dialog" aria-label="Send your letter">
+    <h3>Send your letter to <span id="payTo"></span></h3>
+    <p class="used" id="payUsed"></p>
+    <div class="plans" id="plans">
+      <button type="button" class="plan" data-plan="free"><div class="top"><b>Free</b><span>£0</span></div><small>Classic style · typed note · up to 5 photos · “Made with Museo” watermark · online for 7 days</small></button>
+      <button type="button" class="plan" data-plan="letter" aria-pressed="true"><span class="tag">Most chosen</span><div class="top"><b>Museo Letter</b><span>£6.99</span></div><small>All styles · your handwriting · voice · music · up to 50 photos · open-on date · no watermark · kept forever</small></button>
+      <button type="button" class="plan" data-plan="group"><div class="top"><b>Group Letter</b><span>£14.99</span></div><small>Everything in Museo Letter · friends and family add their own pages and voices · up to 100 photos</small></button>
+    </div>
+    <button type="button" class="primary" id="payGo">Continue</button>
+    <button type="button" class="pill" id="payClose" style="width:100%;margin-top:6px;color:#1D2A38">Not now</button>
+    <p class="note2">Preview only: payments are not connected yet, so nothing will be charged.</p>
+  </div></div>
   <div class="toast" id="toast"></div>
 </div>
 
@@ -283,7 +321,7 @@ $('#music').addEventListener('click',()=>{musicOn=!musicOn; $('#music').style.op
 // ---------- pages ----------
 let idx=0, opened=false, busy=false;
 const total=()=>2+L.pages.length+1; // envelope, note, photos…, last page
-function dots(){ $('#dots').innerHTML=Array.from({length:total()},(_,i)=>`<i class="${i===idx?'on':''}"></i>`).join(''); $('#prev').disabled=idx===0; $('#next').disabled=idx===total()-1; $('#exampleTag').hidden=!L.example; }
+function dots(){ updatePro(); $('#dots').innerHTML=Array.from({length:total()},(_,i)=>`<i class="${i===idx?'on':''}"></i>`).join(''); $('#prev').disabled=idx===0; $('#next').disabled=idx===total()-1; $('#exampleTag').hidden=!L.example; }
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
 function viewEnvelope(){
@@ -320,11 +358,27 @@ function playStrokes(canvas,strokes,ink,pen){
 const inkFor=()=>getComputedStyle(app).getPropertyValue('--ink').trim()||'#1D2A38';
 const isScrap=()=>app.dataset.theme==='scrapbook';
 const WORDS=['one','two','three','four','five','six','seven','eight','nine'];
-function C(){ const to=esc(L.to); return ({
+const OCC={
+  'Love':{env:'Something for you, {to} ♥',note:'For {to}, with love',last:'Always yours',notes:['My {to},\nI collected our favourite days\nand put them in one letter.\nTurn the page slowly. ♥','{to},\nevery photo here is a day\nI would live again with you.','To my favourite person,\nhere is our story so far.'],ends:['Here\'s to all the days still to come.\nAlways yours,','I love you more than all of these.\nForever,']},
+  'Birthday':{env:'Happy birthday, {to}! 🎂',note:'Happy birthday!',last:'Make a wish ✨',notes:['Happy birthday, {to}!\nI made you something\nmore personal than a card.\nTurn the page 🎉','{to},\nanother year of you!\nHere are some of my favourite moments.','To the birthday star,\nhere are a few reasons\nyou are the best.'],ends:['Have the best day.\nYou deserve every bit of it.\nLove,','Here\'s to another year of adventures.\nCheers,']},
+  'Mum & Dad':{env:'For you, {to} ♥',note:'Thank you, {to}',last:'With all my love',notes:['Dear {to},\nthank you for every\nlittle thing you have done.\nThis is for you.','{to},\nI don\'t say it enough,\nso I made you this.'],ends:['Everything I am, I owe to you.\nAll my love,','Thank you for always being there.\nLove you,']},
+  'Friends':{env:'Psst, {to}… open me!',note:'Hey {to}!',last:'Same time next year?',notes:['Hey {to}!\nI found all our best moments\nand put them in one place.\nTry not to cry (laughing).','{to},\nno one else gets it like you do.\nHere\'s the proof.'],ends:['Thanks for being you.\nLove you loads,','To many more stupid stories.\nYour partner in crime,']},
+  'Wedding':{env:'For the happy couple',note:'To {to}',last:'Happily ever after',notes:['Dear {to},\nhere\'s to the start\nof your forever.\nWith love.','{to},\nwhat a day it was.\nHere are some of our favourite moments.'],ends:['Wishing you a lifetime of love and laughter.\nWith love,','Here\'s to your forever.\nCheers,']},
+  'New baby':{env:'Welcome to the world, {to}',note:'Hello, little one',last:'We love you already',notes:['Dear {to},\nyou are only small\nbut you have filled our hearts.\nThese are your first memories.','Little {to},\none day you will read this\nand know how loved you were.'],ends:['We can\'t wait to watch you grow.\nLove always,','You are our favourite story.\nLove,']},
+  'Graduation':{env:'Congratulations, {to}! 🎓',note:'You did it!',last:'The future is yours',notes:['{to},\nall those late nights paid off.\nSo, so proud of you.','Congratulations, {to}!\nHere\'s a look back\nat how far you\'ve come.'],ends:['Go and take on the world.\nProud of you,','The best is yet to come.\nLove,']},
+  'Remembering':{env:'In loving memory',note:'Remembering {to}',last:'Forever in our hearts',notes:['Dear {to},\nthese are the days\nwe will always hold onto.\nYou are so missed.','{to},\nwe still talk about you every day.\nThese are our favourite memories.'],ends:['Thank you for every memory.\nWith love, always,','You live on in all of us.\nForever,']},
+};
+const fill=(s,to)=>s.replace(/\{to\}/g,to);
+function C(){ const to=esc(L.to); const base=CT(to); const o=!L.example&&L.occasion&&OCC[L.occasion]; return o?{...base,env:fill(o.env,to),note:fill(o.note,to),last:o.last}:base; }
+function CT(to){ return ({
   classic:{env:`Something for you, ${to}`,tap:'Tap to open',note:`A letter for ${to}`,mem:(i,n)=>`Memory ${i} of ${n}`,half:'Keep going, the best is still to come',last:'Last page',reply:'Reply with a memory',back:'Make one back'},
   vintage:{env:`Sealed with love, for ${to}`,tap:'Break the seal',note:`My dearest ${to}`,mem:(i)=>`Chapter ${WORDS[i-1]||i}`,half:'Turn the page, my love',last:'Until we meet again',reply:'Write back',back:'Send a letter in return'},
   scrapbook:{env:'psst… this is for you! ♥',tap:'Tap me!',note:'hey you ♥',mem:(i)=>`memory #${i}`,half:"wait… there's more!!",last:'the end… for now',reply:'Send one back!',back:'Make your own'}
 })[app.dataset.theme]; }
+// ---------- what needs PRO ----------
+let paid=false;
+function usedPro(){ if(L.example)return []; const u=[]; if(app.dataset.theme!=='classic')u.push(app.dataset.theme==='vintage'?'Vintage style':'Scrapbook style'); if(L.strokes)u.push('your handwriting'); if(L.voice)u.push('a voice message'); if(L.pages.length>5)u.push(L.pages.length+' photos'); return u; }
+function updatePro(){ const u=usedPro(); app.classList.toggle('wm',!paid&&!L.example&&u.length>0); $('#sendBtn').hidden=L.example; }
 
 function viewNote(){
   const v=document.createElement('div'); v.className='view';
@@ -350,10 +404,12 @@ function viewPhoto(p,i){
 function viewEnd(){
   const v=document.createElement('div'); v.className='view';
   v.innerHTML=`<article class="paper"><div class="kicker">${C().last}</div><div class="note" style="flex:0 0 auto"></div><div class="sign" style="margin-top:10px"></div>
-   <div class="end-actions"><button type="button" class="reply">${C().reply}</button><button type="button" class="ghost makeBack">${C().back}</button></div></article>`;
+   <div class="end-actions">${L.example?`<button type="button" class="reply">${C().reply}</button><button type="button" class="ghost makeBack">${C().back}</button>`:`<button type="button" class="sendEnd">Send this letter</button><button type="button" class="ghost editEnd">Keep editing</button>`}</div></article>`;
   requestAnimationFrame(()=>{const t=writeLines(v.querySelector('.note'),L.end,300); setTimeout(()=>writeLines(v.querySelector('.sign'),L.from+' ♥',0),reduce?0:t);
-    v.querySelector('.reply').addEventListener('click',()=>toast('Replies arrive in the full app'));
-    v.querySelector('.makeBack').addEventListener('click',openEditor);});
+    v.querySelector('.reply')?.addEventListener('click',()=>toast('Replies arrive in the full app'));
+    v.querySelector('.makeBack')?.addEventListener('click',openEditor);
+    v.querySelector('.sendEnd')?.addEventListener('click',openPay);
+    v.querySelector('.editEnd')?.addEventListener('click',openEditor);});
   return v;
 }
 function build(i){ if(i===0)return viewEnvelope(); if(i===1)return viewNote(); if(i===total()-1)return viewEnd(); return viewPhoto(L.pages[i-2],i-2); }
@@ -383,7 +439,8 @@ let tt; function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('o
 // ---------- editor ----------
 const sheet=$('#sheet'); let draft=null;
 function openEditor(){
-  draft={...L,pages:L.example?[]:L.pages.map(p=>({...p}))};
+  draft={...L,pages:L.example?[]:L.pages.map(p=>({...p})),occasion:L.example?'Love':(L.occasion||'Love')};
+  renderOcc();
   $('#fTo').value=L.example?'':L.to; $('#fFrom').value=L.example?'':L.from; $('#fNote').value=L.example?'':L.note; $('#fEnd').value=L.example?'':L.end;
   $('#fTo').placeholder='Sarah'; $('#fFrom').placeholder='Tom'; $('#fNote').placeholder='My Sarah,\nI collected our favourite days…'; $('#fEnd').placeholder="Here's to all the days still to come.";
   renderThumbs(); sheet.classList.add('on'); setTimeout(sizePad,350);
@@ -391,7 +448,7 @@ function openEditor(){
 $('#openEditor').addEventListener('click',openEditor);
 $('#closeEditor').addEventListener('click',()=>sheet.classList.remove('on'));
 $('#pickPhotos').addEventListener('click',()=>$('#files').click());
-$('#files').addEventListener('change',e=>{ for(const f of [...e.target.files]){ if(draft.pages.length>=9)break; draft.pages.push({src:URL.createObjectURL(f),cap:'',date:new Date(f.lastModified).toLocaleDateString('en-GB')}); } e.target.value=''; renderThumbs(); });
+$('#files').addEventListener('change',e=>{ for(const f of [...e.target.files]){ if(draft.pages.length>=9){toast('Up to 9 photos in this preview');break;} draft.pages.push({src:URL.createObjectURL(f),cap:'',date:new Date(f.lastModified).toLocaleDateString('en-GB')}); } e.target.value=''; renderThumbs(); });
 function renderThumbs(){
   $('#thumbs').innerHTML=draft.pages.map((p,i)=>`<div class="thumb"><img src="${p.src}" alt=""><div class="fl"><input type="text" id="cap${i}" placeholder="Caption, e.g. Our first trip" value="${esc(p.cap)}" maxlength="40"><input type="text" id="date${i}" placeholder="Date" value="${esc(p.date)}" maxlength="20"></div></div>`).join('') || '<span class="small">No photos yet. Add up to 9.</span>';
   draft.pages.forEach((p,i)=>{$('#cap'+i).addEventListener('input',e=>p.cap=e.target.value);$('#cap'+i).addEventListener('focus',()=>lastCap=i);$('#date'+i).addEventListener('input',e=>p.date=e.target.value);});
@@ -418,7 +475,7 @@ $('#preview').addEventListener('click',()=>{
   L={...draft, example:false, to:$('#fTo').value.trim()||'You', from:$('#fFrom').value.trim()||'Me',
      note:$('#fNote').value.trim()||'I made this for you.\nTurn the page.', end:$('#fEnd').value.trim()||'With all my love,',
      strokes:(mode==='hand'&&strokes.length)?{list:strokes.map(s=>s.map(p=>({...p}))),aspect:r.height/r.width}:null, pen,
-     pages:draft.pages.length?draft.pages:L.pages};
+     pages:draft.pages.length?draft.pages:L.pages, occasion:draft.occasion};
   sheet.classList.remove('on'); opened=false; stopMusic(); idx=0; rebuild(); toast('Your letter is ready. Tap the envelope.');
 });
 
@@ -434,6 +491,25 @@ const IDEAS={
   'Graduation':['You did it!','All those late nights','Cap, gown and happy tears','So proud of you','Onwards and upwards','The future is yours','First day vs last day','Class of 2026'],
   'Remembering':['Forever in our hearts','The way you smiled','We still talk about this day','Always with us','Your laugh, I can still hear it','Thank you for the memories','Missing you, always','Love never ends'],
 };
+// ---------- occasions & templates ----------
+function renderOcc(){
+  $('#occRow').innerHTML=Object.keys(OCC).map(k=>`<button type="button" data-o="${k}" aria-pressed="${k===draft.occasion}">${k}</button>`).join('');
+  const to=$('#fTo').value.trim()||'you';
+  $('#noteTmpl').innerHTML='<b>Opening note ideas, tap to use</b>'+OCC[draft.occasion].notes.map((t,i)=>`<button type="button" data-n="${i}">${esc(fill(t,to))}</button>`).join('');
+  $('#endTmpl').innerHTML='<b>Last page ideas, tap to use</b>'+OCC[draft.occasion].ends.map((t,i)=>`<button type="button" data-e="${i}">${esc(t)}</button>`).join('');
+}
+$('#occRow').addEventListener('click',e=>{const b=e.target.closest('[data-o]'); if(!b)return; draft.occasion=b.dataset.o; if(IDEAS[b.dataset.o]){ideaSet=b.dataset.o;renderIdeas();} renderOcc();});
+$('#noteTmpl').addEventListener('click',e=>{const b=e.target.closest('[data-n]'); if(!b)return; $('#fNote').value=fill(OCC[draft.occasion].notes[+b.dataset.n],$('#fTo').value.trim()||'you'); setMode('type'); toast('Opening note added');});
+$('#endTmpl').addEventListener('click',e=>{const b=e.target.closest('[data-e]'); if(!b)return; $('#fEnd').value=OCC[draft.occasion].ends[+b.dataset.e]; toast('Last page message added');});
+$('#fTo').addEventListener('input',()=>{if(draft)renderOcc();});
+// ---------- send / paywall (preview, no real payments) ----------
+function openPay(){ const u=usedPro(); $('#payTo').textContent=L.to; $('#payUsed').textContent=u.length?'Your letter uses '+u.join(', ')+', which need Museo Letter.':'Your letter fits the free plan. Upgrade to remove the watermark and keep it forever.';
+  const free=document.querySelector('.plan[data-plan="free"]'); free.disabled=u.length>0; document.querySelectorAll('.plan').forEach(p=>p.setAttribute('aria-pressed',String(p.dataset.plan===(u.length?'letter':'letter')))); $('#pay').hidden=false; }
+$('#sendBtn').addEventListener('click',openPay);
+$('#plans').addEventListener('click',e=>{const p=e.target.closest('.plan'); if(!p||p.disabled)return; document.querySelectorAll('.plan').forEach(x=>x.setAttribute('aria-pressed',String(x===p)));});
+$('#payClose').addEventListener('click',()=>{$('#pay').hidden=true;});
+$('#pay').addEventListener('click',e=>{if(e.target.id==='pay')$('#pay').hidden=true;});
+$('#payGo').addEventListener('click',()=>{const p=document.querySelector('.plan[aria-pressed="true"]')?.dataset.plan; $('#pay').hidden=true; if(p==='free'){toast('Free letter: share link would be created here');return;} toast('Preview: payment is not connected yet. Watermark removed for this demo.'); paid=true; updatePro();});
 let ideaSet='Love';
 function renderIdeas(){ $('#ideas').innerHTML='<b>Caption ideas, tap to use</b><span class="occ">'+Object.keys(IDEAS).map(k=>`<button type="button" class="occb" data-occ="${k}" aria-pressed="${k===ideaSet}">${k}</button>`).join('')+'</span>'+IDEAS[ideaSet].map(t=>`<button type="button" class="idea">${esc(t)}</button>`).join(''); }
 renderIdeas();
