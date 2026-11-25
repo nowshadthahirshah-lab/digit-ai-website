@@ -93,3 +93,16 @@ Trust under button: 14-day money-back · secure payment · real reviews only.
 ### Metrics to track (targets to test, not facts)
 Landing → start · start → preview · preview → send click · send click → paid (aim 15–25%) · overall visitor → paid (aim 3–5%) · average order (aim £8+) · recipients who make one back.
 A/B test one thing at a time: paywall position, £5.99 vs £6.99, teaser photos 3 vs 5, default tier.
+
+## Sound features (added 25/11/2026)
+| Feature | What it does | Tier |
+|---|---|---|
+| Music library | 30–50 royalty-free tracks by mood (romantic, happy birthday, calm piano, lo-fi, wedding, memorial) | Free (3 tracks) / Paid (all) |
+| Voice + tune | Record a message; it plays over a chosen tune; music auto-lowers when voice speaks, fades back after | Paid |
+| Voice styles | Light filters: "museum hall" echo, warm, radio, whisper. No voice cloning. | Paid |
+| Audio guide per photo | Each photo has its own story recording | Paid |
+| Your own music | Upload your own MP3/M4A (e.g. your song, your band, a recording of your wedding song you're allowed to use) – tick "I have the right to use this" | Paid |
+| Song link | Paste a Spotify/Apple Music/YouTube link: shows "Our song" card with play button (opens in their app); not played inside the room | Free |
+| Sing / hum | Record yourself singing; option to add a soft backing tune | Paid |
+| Sound per room | Each room/wing can have its own music | Group / Living museum |
+Rules: no copyrighted songs hosted unless user confirms rights; takedown process; library tracks must be licensed for commercial use.
